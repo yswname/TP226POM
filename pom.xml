@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>JavaWebDemo</module>
+		<module>JavaWebTP03</module>
 	</modules>
 
 	<properties>
@@ -34,7 +35,7 @@
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
-				<version>${server.version}</version>
+				<version>${servlet.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
