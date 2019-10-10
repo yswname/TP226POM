@@ -1,10 +1,13 @@
 package cn.com.demo.tp03.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,6 +47,17 @@ public class TestRequestServlet extends HttpServlet {
 		Map<String,String[]> paramMap = request.getParameterMap();
 		
 		String queryString = request.getQueryString();
+		
+		ServletInputStream in = request.getInputStream();
+		
+		// 基本上是由服务器设置
+		response.setContentType("text/html;charset=utf-8");
+//		response.setHeader(name, value);
+//		response.addHeader(name, value);
+//		response.setStatus(sc, sm);
+		
+		PrintWriter out = response.getWriter();
+		ServletOutputStream out2 = response.getOutputStream();
 
 	}
 
