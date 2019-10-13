@@ -11,12 +11,26 @@
   </welcome-file-list>
   <servlet>
     <description></description>
+    <display-name>yifeServlet</display-name>
+    <servlet-name>yifeServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.YifeServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>yifeServlet</servlet-name>
+    <!-- /xx  /*  *.xx /abc/* -->
+    <url-pattern>/abc/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.com.demo.tp04.servlet.LoginServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
+  
 </web-app>
