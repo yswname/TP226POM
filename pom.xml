@@ -9,6 +9,7 @@
 	<modules>
 		<module>JavaWebDemo</module>
 		<module>JavaWebTP03</module>
+		<module>JavaWebTP04</module>
 	</modules>
 
 	<properties>
