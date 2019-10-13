@@ -67,4 +67,54 @@
     <servlet-name>Servlet2</servlet-name>
     <url-pattern>/servlet2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DemoLoginPageServlet</display-name>
+    <servlet-name>DemoLoginPageServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.DemoLoginPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoLoginPageServlet</servlet-name>
+    <url-pattern>/demoLoginPageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DemoLoginServlet</display-name>
+    <servlet-name>DemoLoginServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.DemoLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoLoginServlet</servlet-name>
+    <url-pattern>/demoLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DemoWelcomeServlet</display-name>
+    <servlet-name>DemoWelcomeServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.DemoWelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoWelcomeServlet</servlet-name>
+    <url-pattern>/demoWelcomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DemoAServlet</display-name>
+    <servlet-name>DemoAServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.DemoAServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoAServlet</servlet-name>
+    <url-pattern>/demoAServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DemoBServlet</display-name>
+    <servlet-name>DemoBServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp04.servlet.DemoBServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoBServlet</servlet-name>
+    <url-pattern>/demoBServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
