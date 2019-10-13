@@ -7,7 +7,6 @@ public class LoginService {
     	// 根据用户名，从数据库中获取密码
     	String dbPassword = "123456";
     	bool = dbPassword.equals(password);
-    	
     	return bool;
     }
 }
