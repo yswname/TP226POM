@@ -59,4 +59,44 @@
     <servlet-name>UserListServlet</servlet-name>
     <url-pattern>/userListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPageServlet</display-name>
+    <servlet-name>EditPageServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp05.servlet.EditPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPageServlet</servlet-name>
+    <url-pattern>/editPageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditServlet</display-name>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp05.servlet.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditServlet</servlet-name>
+    <url-pattern>/editServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WriteCookieServlet</display-name>
+    <servlet-name>WriteCookieServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp05.servlet.WriteCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WriteCookieServlet</servlet-name>
+    <url-pattern>/writeCookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReadCookieServlet</display-name>
+    <servlet-name>ReadCookieServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp05.servlet.ReadCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadCookieServlet</servlet-name>
+    <url-pattern>/readCookieServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

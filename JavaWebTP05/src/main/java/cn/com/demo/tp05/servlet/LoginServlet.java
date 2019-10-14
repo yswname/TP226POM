@@ -3,11 +3,11 @@ package cn.com.demo.tp05.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.com.demo.tp05.entity.UserEntity;
 import cn.com.demo.tp05.service.UserService;
 
 /**
@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");// 对post请求得汉字进行转码
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
+		String noLogin = request.getParameter("ckbNoLogin");
 
 		UserService userService = new UserService();
 
@@ -38,12 +39,18 @@ public class LoginServlet extends HttpServlet {
 			message = e.getMessage();
 		}
 		// 返回响应
-		if(bool) {
+		if (bool) {
+			if ("1".equals(noLogin)) {
+				// 添加免登录得cookie
+				Cookie cookie = new Cookie("ckbNoLogin1", "true");
+				cookie.setMaxAge(60);
+				response.addCookie(cookie);
+			}
 			// ok
 			request.getRequestDispatcher("/userListServlet").forward(request, response);
-		}else {
+		} else {
 			// fail
-			if(message == null) {
+			if (message == null) {
 				message = "登录失败，请重试!";
 			}
 			request.setAttribute("message", message);

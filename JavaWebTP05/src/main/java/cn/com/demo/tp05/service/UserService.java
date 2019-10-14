@@ -29,4 +29,13 @@ public class UserService {
     	userList = this.userDAO.findAll();
     	return userList;
     }
+    
+    public UserEntity searchUserById(int urId) {
+    	UserEntity user = this.userDAO.findById(urId);
+    	return user;
+    }
+    
+    public void updateUser(UserEntity user) {
+    	this.userDAO.updateUser(user);
+    }
 }
