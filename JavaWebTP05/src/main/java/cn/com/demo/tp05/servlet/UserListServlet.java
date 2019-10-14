@@ -54,7 +54,8 @@ public class UserListServlet extends ControllerServlet {
 				"				</th>\r\n" + 
 				"			</thead>\r\n" + 
 				"			<tbody>");
-		
+		String url = "editPageServlet";
+		url = response.encodeRedirectURL(url);// url重写
 		UserService userService = new UserService();
 		List<UserEntity> userList = userService.search();
 		UserEntity user = null;
@@ -66,7 +67,7 @@ public class UserListServlet extends ControllerServlet {
 				"						"+(i+1)+"\r\n" + 
 				"					</td>\r\n" + 
 				"					<td>\r\n" + 
-				"						<a href='editPageServlet?id="+user.getUrId()+"'>"+user.getUrUserName()+"</a>\r\n" + 
+				"						<a href='"+url+"?id="+user.getUrId()+"'>"+user.getUrUserName()+"</a>\r\n" + 
 				"					</td>\r\n" + 
 				"					<td>\r\n" + 
 				"						"+user.getUrSex()+"\r\n" + 

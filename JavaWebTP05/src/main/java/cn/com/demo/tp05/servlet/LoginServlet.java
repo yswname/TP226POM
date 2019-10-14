@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			// 往session中存放一个登录标记
 			HttpSession session = request.getSession();
+			System.out.println(session.getId());
 			session.setAttribute("LOGIN_FLAG", userName);
 			// ok
 			request.getRequestDispatcher("/userListServlet").forward(request, response);

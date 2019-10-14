@@ -19,11 +19,13 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		System.out.println(session.getId());
 		String userName = (String)session.getAttribute("LOGIN_FLAG");
 		if(userName == null) {
 			request.getRequestDispatcher("/loginPageServlet").forward(request, response);
 			return;
 		}
 	}
+	
 
 }
