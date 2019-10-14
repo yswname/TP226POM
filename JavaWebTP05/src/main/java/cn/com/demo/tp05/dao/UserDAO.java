@@ -41,7 +41,7 @@ public class UserDAO {
     	 PreparedStatement stmt = null;
     	 ResultSet rs = null;
     	 try {
-    		 String sql = "update user set ur_password=?,ur_age=?,ur_phone=?,ur_sex=? where ur_id=?";
+    		 String sql = "update yy_user set ur_password=?,ur_age=?,ur_phone=?,ur_sex=? where ur_id=?";
     		 stmt = conn.prepareStatement(sql);
     		 stmt.setInt(5, user.getUrId());
     		 stmt.setString(1, user.getUrPassword());

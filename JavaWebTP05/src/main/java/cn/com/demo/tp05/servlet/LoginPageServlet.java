@@ -8,6 +8,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginPageServlet 生成LoginPage页面
@@ -41,6 +42,11 @@ public class LoginPageServlet extends HttpServlet {
 			}
 		}
 
+		if(hasNoLogin) {
+			HttpSession session = request.getSession();
+			String userName= (String)session.getAttribute("LOGIN_FLAG");
+			hasNoLogin = userName != null;
+		}
 		if (hasNoLogin) {
 			request.getRequestDispatcher("/userListServlet").forward(request, response);
 		} else {

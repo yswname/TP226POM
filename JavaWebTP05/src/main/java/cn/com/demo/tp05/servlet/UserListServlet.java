@@ -16,13 +16,14 @@ import cn.com.demo.tp05.service.UserService;
  * Servlet implementation class UserListServlet
  * 显示所有得用户列表
  */
-public class UserListServlet extends HttpServlet {
+public class UserListServlet extends ControllerServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		super.service(request, response);
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>\r\n" + 
@@ -65,7 +66,7 @@ public class UserListServlet extends HttpServlet {
 				"						"+(i+1)+"\r\n" + 
 				"					</td>\r\n" + 
 				"					<td>\r\n" + 
-				"						"+user.getUrUserName()+"\r\n" + 
+				"						<a href='editPageServlet?id="+user.getUrId()+"'>"+user.getUrUserName()+"</a>\r\n" + 
 				"					</td>\r\n" + 
 				"					<td>\r\n" + 
 				"						"+user.getUrSex()+"\r\n" + 

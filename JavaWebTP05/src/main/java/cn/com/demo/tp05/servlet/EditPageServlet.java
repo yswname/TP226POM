@@ -15,13 +15,14 @@ import cn.com.demo.tp05.service.UserService;
  * Servlet implementation class EditPageServlet
  * 修改用户信息页面
  */
-public class EditPageServlet extends HttpServlet {
+public class EditPageServlet extends ControllerServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		super.service(request, response);
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -58,6 +59,8 @@ public class EditPageServlet extends HttpServlet {
 			out.println(		"			<input type=\"radio\" value=\"男\" name=\"sex\"/>男\r\n" + 
 					"			<input type=\"radio\" value=\"女\" name=\"sex\"  checked='checked'/>女<br/>\r\n");
 		}
+		
+		out.println("<input type='hidden' name='id' value='"+user.getUrId()+"'/>");
 		
 		out.println(		"			<input type=\"submit\" value=\"更新\" />\r\n" + 
 				"			<input type=\"button\" value=\"返回用户列表\" onclick=\"toUserList()\"/>\r\n" + 

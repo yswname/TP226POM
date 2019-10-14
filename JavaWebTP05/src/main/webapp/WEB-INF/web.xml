@@ -99,4 +99,5 @@
     <servlet-name>ReadCookieServlet</servlet-name>
     <url-pattern>/readCookieServlet</url-pattern>
   </servlet-mapping>
+
 </web-app>
