@@ -19,4 +19,26 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/uploadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DownloadServlet</display-name>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp06.servlet.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/downloadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DynamicImageServlet</display-name>
+    <servlet-name>DynamicImageServlet</servlet-name>
+    <servlet-class>cn.com.demo.tp06.servlet.DynamicImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DynamicImageServlet</servlet-name>
+    <url-pattern>/dynamicImageServlet</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>

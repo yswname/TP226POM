@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+   function toRefresh(oImg){
+	   oImg.src="dynamicImageServlet?"+Math.random();
+   }
+</script>
 </head>
 <body>
    <form action="uploadServlet" method="post" enctype="multipart/form-data">
       <input type='text' name='userName'/><br/>
+      <img src="dynamicImageServlet" onclick="toRefresh(this)"/><br/>
       <input type='file' name='myFile'/><br/>
       <input type='submit' value='上传'/>
    </form>
