@@ -37,17 +37,21 @@ public class UploadServlet extends HttpServlet {
 				
 				// 确定目标目录（动态的获取到当前web应用的根路径（绝对路径））
 				ServletContext ctx = request.getServletContext();
+				// 获取/uploadImages的物理路径
 				String rootRealPath = ctx.getRealPath("/uploadImages");
 				String uploadPath = rootRealPath;
-				// 确定目标文件名（按策略，产生一个唯一的文件名）
 				
 				for(FileItem item:items) {
 					if(item.isFormField()) {
+						// 获取参数名称和参数值（userName和userName的值）
 						System.out.println(item.getFieldName() + " ," + item.getString());
 					}else {
+						// 获取原文件名，有些浏览器会包含路径
 						String fileName = item.getName();
+						// 确定目标文件名（按策略，产生一个唯一的文件名）
 						String targetFileName = this.generateTargetFileName(fileName);
 						targetFileName = uploadPath +"/" + targetFileName;
+						// 将上传的文件内容，写入目标文件
 						item.write(new File(targetFileName));
 					}
 				}
