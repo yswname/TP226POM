@@ -17,6 +17,12 @@ public class DemoServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.getSession();
+		
+		request.setAttribute("a", "1");
+		System.out.println("-------------------1 set");
+		request.setAttribute("a", "2");
+		System.out.println("-------------------2 set");
 	}
 
 }

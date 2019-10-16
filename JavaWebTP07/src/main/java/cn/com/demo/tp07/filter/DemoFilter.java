@@ -42,6 +42,8 @@ public class DemoFilter implements Filter {
 
 		response.setContentType("text/html;charset=" + this.encoding);
 		chain.doFilter(new MyRequestWrapper((HttpServletRequest)request), response);// 调用后面的资源
+		
+		System.out.println("DemoFilter doFilter...end");
 
 		// 响应的过滤逻辑
 	}
