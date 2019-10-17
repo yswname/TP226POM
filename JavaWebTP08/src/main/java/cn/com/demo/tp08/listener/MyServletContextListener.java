@@ -3,7 +3,7 @@ package cn.com.demo.tp08.listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-@WebListener
+//@WebListener
 public class MyServletContextListener implements ServletContextListener {
 
 	@Override

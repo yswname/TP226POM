@@ -13,7 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 import cn.com.demo.tp08.servlet.DemoServlet1;
-@WebFilter(filterName="DemoFilter")
+//@WebFilter(filterName="DemoFilter")
 public class InitServletFilter implements Filter {
 
 	@Override
