@@ -10,7 +10,7 @@ public class TestMain {
 		IRequest request = new RequestImpl();
 		
 		request = new RequestWrapper(request);
-		
+
 		// chain.doFilter
 		test(request);
 	}
