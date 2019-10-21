@@ -24,7 +24,7 @@
     Set<String> aliaNameSet = (Set<String>)obj;
     
     boolean hasContains = aliaNameSet.contains(aliaName);
-    if(hasContains){
+    if(hasContains || aliaName == null){
     	request.setAttribute("message","请选另外一个昵称进入聊天室");
     	request.getRequestDispatcher("loginPage.jsp").forward(request,response);
     }else{
