@@ -30,6 +30,7 @@
     }else{
     	aliaNameSet.add(aliaName);
     	session.setAttribute("CURR_ALIA_NAME", aliaName);
+    	session.setMaxInactiveInterval(60*1000*5);
     	request.getRequestDispatcher("talkRoom.jsp").forward(request, response);
     }
 %>

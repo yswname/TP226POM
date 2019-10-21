@@ -40,5 +40,7 @@
     <url-pattern>/dynamicImageServlet</url-pattern>
   </servlet-mapping>
   
-  
+  <session-config>
+     <cookie-config></cookie-config>
+  </session-config>
 </web-app>

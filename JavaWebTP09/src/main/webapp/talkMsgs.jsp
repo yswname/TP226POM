@@ -12,9 +12,14 @@
 <body>
     <%
       List<TalkMessage> msgList = (List<TalkMessage>)application.getAttribute("MSG_LIST");
+      String currAliaName = (String)session.getAttribute("CURR_ALIA_NAME");
       if(msgList != null){
     	  for(TalkMessage msg:msgList){
+    		  if(currAliaName != null && currAliaName.equals(msg.getSender())){
+    			  out.println("<font color='green'>"+msg + "</font><br/>");
+    		  }else{
     		  out.println(msg + "<br/>");
+    		  }
     	  }
       }
     %>
