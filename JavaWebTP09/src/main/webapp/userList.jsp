@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.Set" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,20 +15,14 @@
    3 用不同颜色，标记自己
     --%>
     在线用户：<br/>
-    <%
-       Set<String> aliaNameSet = (Set<String>)application.getAttribute("ALIANAME_SET");
-       String currAliaName = (String)session.getAttribute("CURR_ALIA_NAME");
-    if(aliaNameSet != null){
-    	for(String aliaName:aliaNameSet){
-    		if(aliaName != null){
-    		if(aliaName.equals(currAliaName)){
-    			 out.println("<font color='red'>" + aliaName + "</font><br/>");
-    		}else{
-    		     out.println(aliaName + "<br/>");
-    		}
-    		}
-    	}
-    }
-    %>
+    <c:forEach items="${ALIANAME_SET }" var="aliaName">
+       <c:choose>
+          <c:when test="${aliaName == CURR_ALIA_NAME }">
+             <font color="red">${aliaName }</font><br/>
+          </c:when>
+          <c:otherwise>${aliaName }<br/></c:otherwise>
+       </c:choose>
+    </c:forEach>
+    
 </body>
 </html>
