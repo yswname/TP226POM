@@ -15,6 +15,7 @@
 		<module>JavaWebTP07</module>
 		<module>JavaWebTP08</module>
 		<module>JavaWebTP09</module>
+		<module>JavaWebTP10</module>
 	</modules>
 
 	<properties>
