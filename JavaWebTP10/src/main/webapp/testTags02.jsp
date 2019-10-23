@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,11 @@
     java.util.Date date = new java.util.Date();
     pageContext.setAttribute("date",date);
    %>
-   
+
    <f:formatDate value="${date }" pattern="yyyy-MM-dd hh:mm:ss"/>
 
-    <f:message key="hello"></f:message>
+   <f:message key="hello"></f:message>
    <input type='button' value='<f:message key="testbtn"></f:message>'/>
+   
 </body>
 </html>
