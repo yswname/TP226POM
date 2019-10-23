@@ -12,5 +12,36 @@
    <tag-class>cn.com.demo.javaweb.tp10.tags.HelloTag</tag-class>
    <body-content>empty</body-content>
    
+   <attribute>
+     <name>color</name>
+     <required>true</required>
+     <rtexprvalue>true</rtexprvalue>
+     <type>java.lang.String</type>
+   </attribute>
+   <attribute>
+     <name>age</name>
+     <required>false</required>
+     <rtexprvalue>true</rtexprvalue>
+     <type>int</type>
+   </attribute>
+   <attribute>
+     <name>date</name>
+     <required>true</required>
+     <rtexprvalue>true</rtexprvalue>
+     <type>java.util.Date</type>
+   </attribute>
+ </tag>
+ 
+ <tag>
+   <name>bodytag1</name>
+   <tag-class>cn.com.demo.javaweb.tp10.tags.MyBodyTag</tag-class>
+   <body-content>jsp</body-content>
+   
+   <attribute>
+     <name>begin</name>
+     <required>false</required>
+     <rtexprvalue>true</rtexprvalue>
+     <type>int</type>
+   </attribute>
  </tag>
 </taglib>
