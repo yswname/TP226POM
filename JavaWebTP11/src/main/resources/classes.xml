@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE classes [
+   <!ELEMENT 学校 (classes+)>
+   <!ELEMENT classes (class+)>
+   <!ELEMENT class (stu+)>
+   <!ELEMENT stu (name,sex,age)>
+   <!ELEMENT name (#PCDATA)>
+   <!ELEMENT sex (#PCDATA)>
+   <!ELEMENT age (#PCDATA)>
+
+   <!ATTLIST class
+       id CDATA #REQUIRED>
+   <!ATTLIST stu
+       code CDATA #REQUIRED
+	   aliaName CDATA #IMPLIED>
+]>
+<classes>
+   <class id='001'>
+      <stu code='1002' aliaName='小张'>
+	    <name>zhangsan</name>
+		<sex>男</sex>
+		<age>18</age>
+	  </stu>
+	  <stu code='1002'>
+	    <name>zhangsan</name>
+		<sex>男</sex>
+		<age>18</age>
+	  </stu>
+   </class>
+   <class id='002'>
+      <stu code='2001'>
+	    <name>zhangsan</name>
+		<sex>男</sex>
+		<age>18</age>
+	  </stu>
+	  <stu code='2002'>
+	    <name>zhangsan</name>
+		<sex>男</sex>
+		<age>18</age>
+	  </stu>
+   </class>
+</classes>
