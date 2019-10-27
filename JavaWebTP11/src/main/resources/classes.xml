@@ -16,25 +16,26 @@
 ]>
 <classes>
    <class id='001'>
-      <stu code='1002' aliaName='小张'>
-	    <name>zhangsan</name>
+   
+      <stu code='1001' aliaName='小张'>
+	    <name>zhangsan11</name>
 		<sex>男</sex>
 		<age>18</age>
 	  </stu>
 	  <stu code='1002'>
-	    <name>zhangsan</name>
+	    <name>zhangsan12</name>
 		<sex>男</sex>
 		<age>18</age>
 	  </stu>
    </class>
    <class id='002'>
       <stu code='2001'>
-	    <name>zhangsan</name>
+	    <name>zhangsan21</name>
 		<sex>男</sex>
 		<age>18</age>
 	  </stu>
 	  <stu code='2002'>
-	    <name>zhangsan</name>
+	    <name>zhangsan22</name>
 		<sex>男</sex>
 		<age>18</age>
 	  </stu>
