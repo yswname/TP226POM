@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    var xmlRequest;
+    function toRefresh(){
+    	xmlRequest = new XMLHttpRequest();
+    	xmlRequest.open("post","userList2.jsp");
+    	xmlRequest.onreadystatechange=toShow;
+    	xmlRequest.send();
+    }
+    
+    function toShow(){
+    	if(xmlRequest.readyState==4){
+    		var result = xmlRequest.responseText;
+    		document.getElementById("userListDiv").innerHTML=result;
+    	}
+    }
+    function toLoad(){
+    window.setInterval(toRefresh, 2000);
+    }
+</script>
+</head>
+<body onload="toLoad()">
+<input type="button" value="refresh" onclick="toRefresh()"/>
+<div id="userListDiv">
+</div>
+</body>
+</html>
