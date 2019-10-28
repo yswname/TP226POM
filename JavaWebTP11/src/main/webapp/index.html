@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   var xmlHttpRequest;
+   function toSend(){
+	   // 获取输入的数据
+	   var nameValue = document.getElementById("name").value;
+	   // 1 create
+	   xmlHttpRequest = new XMLHttpRequest();
+	   // 2 准备发送
+	   var _url = "helloServlet?name="+nameValue;
+	   xmlHttpRequest.open("post", _url);
+	   // 2.5 绑定
+	   xmlHttpRequest.onreadystatechange = toChangeView;
+	   // 3 发送
+	   xmlHttpRequest.send();
+   }
+   
+   function toChangeView(){
+	   if(xmlHttpRequest.readyState == 4){
+		   var responseResult = xmlHttpRequest.responseText;
+		   document.getElementById("viewDiv").innerHTML=responseResult;
+	   }
+   }
+</script>
+</head>
+<body>
+   <input type="text" name="name" id="name"/><input type='button' value="提交" onclick="toSend()"/>
+   
+   <div id="viewDiv">
+   没有问候
+   </div>
+</body>
+</html>
