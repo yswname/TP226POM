@@ -13,31 +13,33 @@
    <!ATTLIST stu
        code CDATA #REQUIRED
 	   aliaName CDATA #IMPLIED>
+   <!ATTLIST name
+       test CDATA #IMPLIED>
 ]>
 <classes>
    <class id='001'>
    
       <stu code='1001' aliaName='小张'>
 	    <name>zhangsan11</name>
-		<sex>男</sex>
+		<sex>男1</sex>
 		<age>18</age>
 	  </stu>
 	  <stu code='1002'>
 	    <name>zhangsan12</name>
-		<sex>男</sex>
-		<age>18</age>
+		<sex>男2</sex>
+		<age>19</age>
 	  </stu>
    </class>
    <class id='002'>
       <stu code='2001'>
-	    <name>zhangsan21</name>
-		<sex>男</sex>
-		<age>18</age>
+	    <name test="kkkk">zhangsan21</name>
+		<sex>男3</sex>
+		<age>20</age>
 	  </stu>
 	  <stu code='2002'>
 	    <name>zhangsan22</name>
-		<sex>男</sex>
-		<age>18</age>
+		<sex>男4</sex>
+		<age>21</age>
 	  </stu>
    </class>
 </classes>
