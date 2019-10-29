@@ -30,6 +30,11 @@
 		<jaxen.version>1.1.6</jaxen.version>
 		<dom4j.version>1.6.1</dom4j.version>
 		<json.lib.version>2.2.3</json.lib.version>
+		<ezmorph.version>1.0.6</ezmorph.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.beanutils.version>1.9.3</commons.beanutils.version>
 	</properties>
 
 	<build>
@@ -102,27 +107,27 @@
 			<dependency>
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
-				<version>1.9.3</version>
+				<version>${commons.beanutils.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
-				<version>3.2.1</version>
+				<version>${commons.collections.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
-				<version>2.6</version>
+				<version>${commons.lang.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-logging</groupId>
 				<artifactId>commons-logging</artifactId>
-				<version>1.1.1</version>
+				<version>${commons.logging.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.sf.ezmorph</groupId>
 				<artifactId>ezmorph</artifactId>
-				<version>1.0.6</version>
+				<version>${ezmorph.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.sf.json-lib</groupId>
