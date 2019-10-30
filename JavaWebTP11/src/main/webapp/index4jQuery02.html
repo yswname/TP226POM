@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+
+   function toSend(){
+      // 获取name值
+      var nameValue = $("#name").val();
+      // 拼凑成参数
+      var _data = "name="+nameValue+"&age=12";
+      // 发送ajax
+      /*$.post("helloServlet",_data,function(msg){
+    	  $("#viewDiv").html(msg);
+      });*/
+      $("#viewDiv").load("helloServlet?name=yyyy");
+   }
+   
+</script>
+</head>
+<body>
+   <input type="text" name="name" id="name"/><input type='button' value="提交" onclick="toSend()"/>
+   
+   <div id="viewDiv">
+   没有问候
+   </div>
+</body>
+</html>

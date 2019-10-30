@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+   function toSend(){
+	   $.ajax({
+		   type:'post',
+		   data:'name=zhangsan',
+		   dataType:'json',
+		   url:'searchServlet',
+		   success:function(msg){
+			   var oStu = msg
+			   $("#viewDiv").html(oStu.name + ","+ oStu.age +"," + oStu.code);
+		   }
+	   });
+   }
+   
+   function toChangeView(){
+	   if(xmlHttpRequest.readyState == 4){
+		   var responseResult = xmlHttpRequest.responseText;
+		   alert(responseResult);
+		   //responseResult = '{"name":"xxx","age":10,"code":"yyyyy"}';
+		   var oStu = JSON.parse(responseResult);//eval("("+responseResult+")");
+		   document.getElementById("viewDiv").innerHTML=oStu.name + ","+ oStu.age +"," + oStu.code;
+	   }
+   }
+</script>
+</head>
+<body>
+   <input type="text" name="name" id="name"/><input type='button' value="提交" onclick="toSend()"/>
+   
+   <div id="viewDiv">
+   没有问候
+   </div>
+</body>
+</html>

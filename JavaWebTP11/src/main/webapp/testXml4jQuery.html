@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+   function toSend(){
+	   $.ajax({
+		   type:'post',
+		   url:'js/test.js',
+		   dataType:'script',
+		   success:function(msg){
+			   //alert(msg);
+			   eval(msg);
+			   myTestFunc();
+		   }
+	   });
+	   
+	   
+	   $.ajax({
+		   type:'post',
+		   url:'xmlServlet',
+		   data:'name=xxxx',
+		   dataType:"xml",
+		   success:function(msg){
+			   //alert(msg);
+			   var responseResult = msg;// Xml Document
+			   //alert(responseResult);
+			   // 获取所有的name元素
+			   var names = responseResult.getElementsByTagName("name");
+			   var nameStr = "";
+			   for(var i=0;i<names.length;i++){
+				   var nameElement = names[i];
+				   nameStr += nameElement.firstChild.nodeValue +",";
+			   }
+			   //alert(nameStr);
+			   
+			   $("#viewDiv").html(nameStr);
+		   }
+		   
+	   });
+   }
+   
+  
+</script>
+</head>
+<body>
+   <input type="text" name="name" id="name"/><input type='button' value="提交" onclick="toSend()"/>
+   
+   <div id="viewDiv">
+   没有问候
+   </div>
+</body>
+</html>
