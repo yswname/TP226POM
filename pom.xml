@@ -18,6 +18,7 @@
 		<module>JavaWebTP10</module>
 		<module>JavaWebTP11</module>
 		<module>JavaWebTP12</module>
+		<module>JavaWebShopping</module>
 	</modules>
 
 	<properties>
