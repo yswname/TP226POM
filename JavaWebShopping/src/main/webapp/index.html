@@ -39,6 +39,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});	  
 });
 </script>
+<script>
+   $(document).ready(function(){
+	   // 初始化产品列表div
+	   $.ajax({
+		   type:'post',
+		   url:'indexListProductServlet',
+		   success:function(msg){
+			   $("#proListDiv").html(msg);
+		   }
+	   });
+   });
+</script>
 </head>
 <body>
 <div class="index-banner">
@@ -237,31 +249,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</ul>
 		   </div>
 		   <div class="content_right-box">
-			<div class="col-md-8">
-			  <div class="grid1">
-			    <h5>Watches</h5>
-   				  <div class="view view-first">
-                     <img src="images/pic1.jpg" class="img-responsive" alt=""/>
-   				       <a href="single.html"><div class="mask">
-   			            <h3>Quick Look</h3>
-                        <p>-----Or----</p>
-                        <h4>Add To Basket</h4>
-                      </div></a>
-                   </div> 
-               <h6>$499</h6>
-			  </div>
-			   <div class="grid1 box4">
-			    <h5>T-Shirt with print</h5>
-   				  <div class="view view-first">
-                     <img src="images/pic2.jpg" class="img-responsive" alt=""/>
-                     <a href="single.html"><div class="mask mask1">
-   			            <h3>Quick Look</h3>
-                        <p>-----Or----</p>
-                        <h4>Add To Basket</h4>
-                      </div></a>
-   				  </div> 
-               <h6>$59</h6>
-			  </div>
+			<div id="proListDiv" class="col-md-8">
+			<!-- 动态加载产品列表（每类产品显示一个） -->
+			
+			
+			  
+			  
+			  
 			</div>
 			<div class="col-md-4">
 			  <a href="single.html"><div class="grid2">
