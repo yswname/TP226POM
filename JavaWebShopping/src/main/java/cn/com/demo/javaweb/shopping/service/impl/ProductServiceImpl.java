@@ -14,6 +14,14 @@ import cn.com.demo.javaweb.shopping.service.IProductService;
 public class ProductServiceImpl implements IProductService {
     private ISpProductDAO proDao = new SpProductDAOImpl();
     private ISpImageDAO imgDAO = new SpImageDAOImpl();
+    
+    
+	@Override
+	public SpProduct searchById(int prId) {
+		return this.proDao.findById(prId);
+	}
+
+
 	@Override
 	public List<SpProduct> searchProductListByCate(int cataId) {
 		String where = " where pr_ct_id = ?";

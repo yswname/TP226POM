@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script type="text/javascript">
+   function toAddShopCar(proId){
+	   var _data = "prId=" + proId;
+	   $.ajax({
+		   type:'post',
+		   url:'addShopCarServlet',
+		   data:_data,
+		   success:function(msg){
+			   $.ajax({
+				   type:'post',
+				   url:'showProductCountServlet',
+				   success:function(countMsg){
+					   $("#shopCarCountDiv").html(countMsg);
+				   }
+			   });
+			   alert(msg);
+		   }
+	   });
+   }
+</script>
 <c:forEach items="${firstProList }" var="_pro" varStatus="index">
     <c:choose>
       <c:when test="${index.index == 0 }">
@@ -22,6 +42,6 @@
                       </div></a>
                    </div> 
                <h6>￥${_pro.prPrice}</h6>
-               <input class="shopCarBtn" type="button" value="加入购物车" title="">
+               <input class="shopCarBtn" type="button" value="加入购物车" title="" onclick="toAddShopCar(${_pro.prId})">
 			  </div>
 </c:forEach>   
