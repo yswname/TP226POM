@@ -1,5 +1,7 @@
 package cn.com.demo.javaweb.shopping.entity;
 
+import java.util.List;
+
 public class SpProduct {
     private int prId;
     private double prPrice;
@@ -8,6 +10,31 @@ public class SpProduct {
     private String prAttrs;
     private String prDetailDesc;
     private int prCtId;
+    
+    // 图片
+    private SpImage listPic;// 列表
+    private List<SpImage> smallListPic;// 侧面小图片
+    private List<SpImage> bigListPic;// 大图片
+    
+    
+	public SpImage getListPic() {
+		return listPic;
+	}
+	public void setListPic(SpImage listPic) {
+		this.listPic = listPic;
+	}
+	public List<SpImage> getSmallListPic() {
+		return smallListPic;
+	}
+	public void setSmallListPic(List<SpImage> smallListPic) {
+		this.smallListPic = smallListPic;
+	}
+	public List<SpImage> getBigListPic() {
+		return bigListPic;
+	}
+	public void setBigListPic(List<SpImage> bigListPic) {
+		this.bigListPic = bigListPic;
+	}
 	public int getPrId() {
 		return prId;
 	}

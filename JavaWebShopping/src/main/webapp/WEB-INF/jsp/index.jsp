@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -240,30 +241,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   </div>
 		   <div class="content_right-box">
 			<div class="col-md-8">
+			
+			
+			<c:forEach items="${firstProList }" var="_pro">
 			  <div class="grid1">
-			    <h5>Watches</h5>
+			    <h5>${_pro.prTitle }</h5>
    				  <div class="view view-first">
-                     <img src="images/pic1.jpg" class="img-responsive" alt=""/>
+                     <img src="images/${_pro.listPic.imgUrl }" class="img-responsive" alt="${_pro.listPic.imgTitle }"/>
    				       <a href="single.html"><div class="mask">
-   			            <h3>Quick Look</h3>
+   			            <h3>查看详细信息</h3>
                         <p>-----Or----</p>
-                        <h4>Add To Basket</h4>
+                        <h4>加入购物车</h4>
                       </div></a>
                    </div> 
-               <h6>$499</h6>
+               <h6>￥${_pro.prPrice}</h6>
 			  </div>
-			   <div class="grid1 box4">
-			    <h5>T-Shirt with print</h5>
-   				  <div class="view view-first">
-                     <img src="images/pic2.jpg" class="img-responsive" alt=""/>
-                     <a href="single.html"><div class="mask mask1">
-   			            <h3>Quick Look</h3>
-                        <p>-----Or----</p>
-                        <h4>Add To Basket</h4>
-                      </div></a>
-   				  </div> 
-               <h6>$59</h6>
-			  </div>
+			</c:forEach>   
+			   
+			   
 			</div>
 			<div class="col-md-4">
 			  <a href="single.html"><div class="grid2">
