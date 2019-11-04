@@ -1062,6 +1062,25 @@ ul.product-qty{
 	transition: all 0.3s ease-in-out;
 	margin-top: 2em;
 }
+.shopCarBtn {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	font-size: 1em;
+	padding: 13px 20px;
+	background:#ff0d40;
+	color: #FFF;
+	text-transform: uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	margin-top: 2em;
+	float: right;
+	position: relative;
+	bottom: 50px;
+}
 .btn_form form input[type="submit"]:hover{
 	background:#f6b71a;
 }
