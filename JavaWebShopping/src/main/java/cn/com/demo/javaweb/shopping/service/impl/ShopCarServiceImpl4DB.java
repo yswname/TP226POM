@@ -5,6 +5,7 @@ import java.util.List;
 
 import cn.com.demo.javaweb.shopping.dao.IShopCarItemDAO;
 import cn.com.demo.javaweb.shopping.dao.ISpProductDAO;
+import cn.com.demo.javaweb.shopping.dao.impl.ShopCarItemDAOImpl;
 import cn.com.demo.javaweb.shopping.dao.impl.SpProductDAOImpl;
 import cn.com.demo.javaweb.shopping.entity.SpProduct;
 import cn.com.demo.javaweb.shopping.entity.SpShopCarItem;
@@ -12,7 +13,7 @@ import cn.com.demo.javaweb.shopping.service.IShopCarService;
 import cn.com.demo.javaweb.shopping.service.ShopCarItem;
 
 public class ShopCarServiceImpl4DB implements IShopCarService {
-	private IShopCarItemDAO carDAO = null;
+	private IShopCarItemDAO carDAO = new ShopCarItemDAOImpl();
 	private ISpProductDAO productDAO = new SpProductDAOImpl();
 
 	private int urId;
