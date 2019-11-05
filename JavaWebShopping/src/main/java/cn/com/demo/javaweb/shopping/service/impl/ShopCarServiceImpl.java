@@ -76,4 +76,7 @@ public class ShopCarServiceImpl implements IShopCarService {
 		return list;
 	}
 
+	@Override
+	public void setUserId(int urId) {}
+
 }
