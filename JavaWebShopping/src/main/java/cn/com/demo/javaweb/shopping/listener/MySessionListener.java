@@ -1,12 +1,11 @@
 package cn.com.demo.javaweb.shopping.listener;
 
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 import cn.com.demo.javaweb.shopping.entity.SpUser;
-@WebListener
+//@WebListener
 public class MySessionListener implements HttpSessionListener {
 
 	@Override

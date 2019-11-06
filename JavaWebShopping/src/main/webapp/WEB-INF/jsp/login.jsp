@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -48,10 +51,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   $("#cataListDiv").html(msg);
 		   }
 	   });
+	   
+	   <c:if test="${!errorMsg }">
+	      alert('${errorMsg }');
+	   </c:if>
    });
 </script>
 </head>
 <body>
+
 <div class="sales">
     <div class="container">
 	  <div class="header_top">
