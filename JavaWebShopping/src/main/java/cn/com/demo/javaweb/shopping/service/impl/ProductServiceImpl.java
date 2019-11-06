@@ -18,7 +18,14 @@ public class ProductServiceImpl implements IProductService {
     
 	@Override
 	public SpProduct searchById(int prId) {
-		return this.proDao.findById(prId);
+		SpProduct pro = this.proDao.findById(prId);
+		// 获取列表图片
+		List<SpImage> imageList = this.imgDAO.findImages(1, pro.getPrCtId());
+		if(imageList != null && imageList.size()>0) {
+			// 查询列表上显示的小图片对象
+			pro.setListPic(imageList.get(0));
+		}
+		return pro;
 	}
 
 

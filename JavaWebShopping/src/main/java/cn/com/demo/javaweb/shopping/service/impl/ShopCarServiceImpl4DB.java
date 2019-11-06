@@ -9,12 +9,14 @@ import cn.com.demo.javaweb.shopping.dao.impl.ShopCarItemDAOImpl;
 import cn.com.demo.javaweb.shopping.dao.impl.SpProductDAOImpl;
 import cn.com.demo.javaweb.shopping.entity.SpProduct;
 import cn.com.demo.javaweb.shopping.entity.SpShopCarItem;
+import cn.com.demo.javaweb.shopping.service.IProductService;
 import cn.com.demo.javaweb.shopping.service.IShopCarService;
 import cn.com.demo.javaweb.shopping.service.ShopCarItem;
 
 public class ShopCarServiceImpl4DB implements IShopCarService {
 	private IShopCarItemDAO carDAO = new ShopCarItemDAOImpl();
 	private ISpProductDAO productDAO = new SpProductDAOImpl();
+	IProductService productService = new ProductServiceImpl();
 
 	private int urId;
 
@@ -108,7 +110,9 @@ public class ShopCarServiceImpl4DB implements IShopCarService {
 			for(SpShopCarItem dbItem:dbItems) {
 				item = new ShopCarItem();
 				item.setCount(dbItem.getCarItNumber());
-				item.setPro(this.productDAO.findById(dbItem.getCarItPrId()));
+				//item.setPro(this.productDAO.findById(dbItem.getCarItPrId()));
+				SpProduct product = this.productService.searchById(dbItem.getCarItPrId());
+				item.setPro(product);
 				
 				items.add(item);
 			}

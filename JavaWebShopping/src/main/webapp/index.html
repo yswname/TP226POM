@@ -49,8 +49,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   $("#proListDiv").html(msg);
 		   }
 	   });
+	   
+	   $.ajax({
+		   type:'post',
+		   url:'indexCataListServlet',
+		   success:function(msg){
+			   $("#cataListDiv").html(msg);
+		   }
+	   });
+	   
+	   
    });
+   function toShowShopCarItem(){
+	   $.ajax({
+		   type:'post',
+		   url:'shopCarItemListServlet',
+		   success:function(msg){
+			   $("#shopCarItemListDiv").html(msg);
+		   }
+	   });
+   }
 </script>
+
 </head>
 <body>
 <div class="index-banner">
@@ -61,49 +81,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<div class="header-bottom-right">
 	       <ul class="icon1 sub-icon1 profile_img">
-					 <li><a class="active-icon c1" href="#">My Cart </a><div id="shopCarCountDiv" class="rate">0</div>
-						<ul class="sub-icon1 list">
-						  <h3>Recently added items(3)</h3>
-						  <div class="shopping_cart">
-							  <div class="cart_box">
-							   	 <div class="message">
-							   	     <div class="alert-close"> </div> 
-					                <div class="list_img"><img src="images/1.jpg" class="img-responsive" alt=""/></div>
-								    <div class="list_desc"><h4><a href="#">velit esse molestie</a></h4>1 x<span class="actual">
-		                             $12.00</span></div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
-	                            <div class="cart_box">
-							   	 <div class="message1">
-							   	     <div class="alert-close1"> </div> 
-					                <div class="list_img"><img src="images/2.jpg" class="img-responsive" alt=""/></div>
-								    <div class="list_desc"><h4><a href="#">velit esse molestie</a></h4>1 x<span class="actual">
-		                             $12.00</span></div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
-	                            <div class="cart_box1">
-								  <div class="message2">
-							   	     <div class="alert-close2"> </div> 
-					                <div class="list_img"><img src="images/3.jpg" class="img-responsive" alt=""/></div>
-								    <div class="list_desc"><h4><a href="#">velit esse molestie</a></h4>1 x<span class="actual">
-		                             $12.00</span></div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
-	                        </div>
-	                        <div class="total">
-	                        	<div class="total_left">CartSubtotal : </div>
-	                        	<div class="total_right">$250.00</div>
-	                        	<div class="clearfix"> </div>
-	                        </div>
-                            <div class="login_buttons">
-							  <div class="check_button"><a href="checkout.html">Check out</a></div>
-							  <div class="login_button"><a href="login.html">Login</a></div>
-							  <div class="clearfix"></div>
-						    </div>
-					      <div class="clearfix"></div>
+					 <li><a  onmouseover="toShowShopCarItem()" class="active-icon c1" href="#">My Cart </a><div id="shopCarCountDiv" class="rate">0</div>
+						<ul id="shopCarItemListDiv" class="sub-icon1 list">
+						  <!-- 购物列表 -->
+						  
+						  
 						</ul>
 					 </li>
 		      </ul>
@@ -207,17 +189,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		</script>
 		<div class="box1">
-			<ul class="box1_list">
-				<li><a href="#">Jeans</a></li>
-				<li><a href="#">Hoodies</a></li>
-				<li><a href="#">Watches</a></li>
-				<li><a href="#">Suits</a></li>
-				<li><a href="#">Ties</a></li>
-				<li><a href="#">Shirts</a></li>
-				<li><a href="#">T-Shirts</a></li>
-				<li><a href="#">Underwear</a></li>
-				<li><a href="#">Accessories</a></li>
-				<li><a href="#">Caps & Hats</a></li>
+			<ul id="cataListDiv" class="box1_list">
+		    <!-- 分类列表 -->
+				
+				
 			</ul>
 		</div>
 		<ul class="box2_list">
