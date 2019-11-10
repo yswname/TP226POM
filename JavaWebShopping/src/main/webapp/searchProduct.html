@@ -233,111 +233,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
                 <div class="clearfix"></div>
 		   </div>
-		   
+		   <script type="text/javascript">
+		      function sendSearch(wordkey, pageNo){
+		    	  var _data = "wordkey=" + wordkey + "&pageNo=" + pageNo;
+		    	  $.ajax({
+		    		  type:'post',
+		    		  data:_data,
+		    		  url:'searchProductServlet',
+		    		  success:function(msg){
+		    			  $("#proListDiv").html(msg);
+		    		  }
+		    	  });
+		      }
+		      var currPage = 1
+		      var totalPage = 1;
+		      function toFirst(){
+		    	  var wordkey = ....;
+		    	  sendSearch(wordkey, 1);
+		    	  // 请求总页码数
+		    	  $.ajax({
+		    		  type:'post',
+		    		  data:'查询条件'
+		    		  url:'总页码的Servlet',
+		    		  success:function(msg){
+		    			  totalPage = msg;
+		    		  }
+		    	  })
+		      }
+		      
+		      function toPrePage(){
+		    	  var wordkey = ....;
+		    	  currPage = currPage - 1;
+		    	  if(currPage < 1){
+		    		  currPage = 1;
+		    	  }
+		    	  sendSearch(wordkey, currPage);
+		      }
+		      function toNextPage(){
+		    	  var wordkey = ....;
+		    	  currPage = currPage + 1;
+		    	  if(currPage > totalPage){
+		    		  currPage = totalPage;
+		    	  }
+		    	  sendSearch(wordkey, currPage);
+		      }
+		   </script>
 		   <div>
-		     <form action="orderServlet" method="post">
-			   <div id="receiveMsgDiv">
-				   收货人：<input type="text" name='receiveName' /><br/>
-				   收货电话：<input type="text" name="receivePhone" /><br/>
-				   收货地址：<input type="text" name="receiveAddress" />
-			   </div>
-			   <style type="text/css">
-				   .shopCarItemDiv{
-					   border-bottom-color: #AFD9EE;
-					   border-bottom-width: 1px;
-					   border-bottom-style: solid;
-				   }
-				   .shopCarItemDiv div{
-					   float: left;
-				   }
-				   .shopCarItemDiv .itemCk{
-					   width: 30px;
-				   }
-				   .shopCarItemDiv .itemImg{
-					   width:40px;
-				   }
-				   .shopCarItemDiv .itemName{
-					   width: 200px;
-				   }
-				   .shopCarItemDiv .itemPrice{
-				   	   width: 150px;
-				   }
-				   .shopCarItemDiv .itemCount{
-				   	   width: 80px;
-				   }
-				   .shopCarItemDiv .itemSum{
-				   	   width: 80px;
-				   }
-				   .shopCarItemDiv .itemOperate{
-				   	   width: 80px;
-				   }
-			   </style>
-			   <br />
-			   <script type="text/javascript">
-			      $(document).ready(function(){
-			    	  $("#allCheck").click(function(){
-			    		  var v = $("#allCheck")[0].checked;
-			    		  
-			    		  var cks = $("input[type='checkbox']");
-			    		  for(var i=0;i<cks.length;i++){
-			    			  cks[i].checked=v;
-			    		  }
-			    		  
-			    		  $("input[type='checkbox']").click(computeSum);
-			    		  
-			    		  //computeSum();
-			    	  });
-			      });
-			      
-			      function computeSum(){
-			    	  // 获取所有选中的checkbox
-			    	  var allChecked = $("input:checked");
-			    	  var sum = 0;
-			    	  // 循环
-			    	  for(var i=0;i<allChecked.length;i++){
-			    	  //   checkbox value
-			    	      var prId = allChecked[i].value;
-			    	  
-			    	  //   拼凑出小计div的id
-			    	      var divId = "sum"+prId;
-			    	      var divValue = $("#"+divId).html();
-			    	  //   求和
-			    	      if(divValue){
-			    	        divValue = divValue.substr(divValue.indexOf("￥")+1);
-			    	        divValue = parseFloat(divValue);
-			    	        sum+=divValue;
-			    	      }
-			     	 }
-			    	  // 更新到总计
-			    	  $("#sumDiv").html("总计:"+sum);
-			      }
-			   </script>
-			   <div class="shopCarItemDiv">
-				   <div class="itemCk">
-				   					   <input type="checkbox" value="itemid" id="allCheck"/>
-				   </div>
-				   <div class="itemImg">
-				   					   
-				   </div>
-				   <div class="itemName">名称</div>
-				   <div class="itemPrice">单价</div>
-				   <div class="itemCount">
-				   					   数量
-				   </div>
-				   <div class="itemSum">
-				   					   小计
-				   </div>
-				   <div class="itemOperate">
-				   					   操作
-				   </div>
-				</div><br/><br/>
-				
-				<div id="shopItemListDiv">
-				  <!--购物车item列表-->
-			    </div>
-			  
-		   </div>
-		   </form>
+		     <!-- 查询条件 -->
+		     <!-- 产品列表 -->
+		     <div id="proListDiv">
+		       <!-- 局部刷新查询或分页的产品列表 -->
+		     </div>
+		     <!-- 分页按钮 -->
            </div>
            
            

@@ -6,7 +6,7 @@
 <c:forEach items="${itemList }" var="_item">
                <div class="shopCarItemDiv">
 				   <div class="itemCk">
-					   <input type="checkbox" value="${_item.pro.prId }"/>
+					   <input type="checkbox" name="proIds" value="${_item.pro.prId }"/>
 				   </div>
 				   <div class="itemImg">
 					   <img src="images/${_item.pro.listPic.imgUrl }" width="40px" height="30px"/>
