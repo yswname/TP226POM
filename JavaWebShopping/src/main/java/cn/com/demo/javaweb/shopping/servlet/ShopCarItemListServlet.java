@@ -33,7 +33,13 @@ public class ShopCarItemListServlet extends HttpServlet {
 			if (items != null)
 				req.setAttribute("itemSize", items.size());
 		}
-		req.getRequestDispatcher("/WEB-INF/jsp/shopCarItemList.jsp").forward(req, resp);
+
+		String type = req.getParameter("type");
+		if ("1".equals(type)) {
+			req.getRequestDispatcher("/WEB-INF/jsp/jsShopCarItemList.jsp").forward(req, resp);
+		} else {
+			req.getRequestDispatcher("/WEB-INF/jsp/shopCarItemList.jsp").forward(req, resp);
+		}
 
 	}
 
