@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+   function toSend(){
+	   var oUser = {"urId":"1","urUserName":"zhangsan","sex":"nan"};
+	   var _data = JSON.stringify(oUser);
+	   $.ajax({
+		   type:'post',
+		   url:'res/test6',
+		   data:_data,
+		   dataType:'json',
+		   contentType:'application/json;charset=UTF-8',
+		   success:function(msg){
+			   alert(msg.urUserName +","+msg.urId+","+msg.sex);
+		   }
+	   });
+   }
+</script>
+</head>
+<body>
+   <input type='button' value='testJson' onclick="toSend()"/>
+   <div id="viewId">
+   </div>
+</body>
+</html>
