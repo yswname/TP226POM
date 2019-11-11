@@ -6,10 +6,13 @@ import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/req")
 public class DemoTransRequestController {
+	public void test0(@RequestParam(defaultValue="",name="",required=true,value="abc") String name,
+			@RequestParam(name="age",defaultValue="18") int age){
+		
+	}
 	@RequestMapping("/test1")
     public void test1(@RequestParam Map<String,String> map) {
     	Set<Entry<String,String>> entrys = map.entrySet();
@@ -44,5 +51,17 @@ public class DemoTransRequestController {
 	public void test5(@RequestHeader("Accept-Language") String header1,@CookieValue("JSESSIONID") String sessionId) {
 		System.out.println(header1 + "," + sessionId);
 		
+	}
+	@RequestMapping("/test6")
+	public void test6(@RequestBody String body) {
+		System.out.println(body);
+	}
+	@RequestMapping("/test7")
+	public void test7(HttpEntity<String> entity) {
+		HttpHeaders headers = entity.getHeaders();
+		String value = headers.getAccessControlAllowOrigin();
+		
+		String body = entity.getBody();
+		System.out.println(value + ",,," + body);
 	}
 }
