@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+   <%
+   System.out.println("11111111111111111111.jsp jsp");
+   %>
    test3:${name }<br/>
    userName:${sessionScope.userName }
 </body>

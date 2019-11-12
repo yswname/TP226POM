@@ -9,6 +9,25 @@
     <mvc:annotation-driven enable-matrix-variables="true"></mvc:annotation-driven>
     <mvc:default-servlet-handler default-servlet-name="default"/>
     <context:component-scan base-package="cn.com.demo.mvc.controller"></context:component-scan>
+    <!-- 玩拦截器 -->
+    <mvc:interceptors>
+       <mvc:interceptor>
+         <mvc:mapping path="/**"/>
+         <mvc:exclude-mapping path="/attr/**"/>
+         <mvc:exclude-mapping path="/*.js"/>
+         <mvc:exclude-mapping path="/*.css"/>
+         <mvc:exclude-mapping path="/*.html"/>
+         <bean class="cn.com.demo.mvc.inter.DemoInterceptor"></bean>
+       </mvc:interceptor>
+       <mvc:interceptor>
+         <mvc:mapping path="/**"/>
+         <mvc:exclude-mapping path="/attr/**"/>
+         <mvc:exclude-mapping path="/*.js"/>
+         <mvc:exclude-mapping path="/*.css"/>
+         <mvc:exclude-mapping path="/*.html"/>
+         <bean class="cn.com.demo.mvc.inter.DemoInterceptor2"></bean>
+       </mvc:interceptor>
+    </mvc:interceptors>
     <!-- 视图转换器 -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.UrlBasedViewResolver">
