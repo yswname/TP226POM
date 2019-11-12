@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-   test3:${name }<br/>
-   userName:${sessionScope.userName }
+test2:${name}<br/>
+userName:${sessionScope.userName }
 </body>
 </html>
