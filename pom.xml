@@ -20,6 +20,8 @@
 		<module>JavaWebTP12</module>
 		<module>JavaWebShopping</module>
 		<module>SSMMVC</module>
+		<module>SSMMVC02</module>
+		<module>SSMMVC03</module>
 	</modules>
 
 	<properties>
