@@ -13,15 +13,16 @@ import cn.com.demo.javaweb.shopping.service.impl.SystemControlServiceImpl;
 @Controller
 @SessionAttributes("LOGIN_USER")
 public class LoginController {
-	@RequestMapping(name = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login")
 	public String loginPage() {
+		System.out.println("**********");
 		return "myLogin";
 	}
 
-	@RequestMapping(name = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(String userName, String password, Model model) {
 		String result = "myLogin";
-
+System.out.println("AAAAAAAAAA");
 		// 创建service
 		ISystemControlService controlService = new SystemControlServiceImpl();
 		try {
