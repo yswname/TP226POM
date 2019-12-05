@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 读入db.properties文件内容 -->
+    <!-- 
+	<properties resource="db.properties">
+		<property name="test" value="demoValue" />
+	</properties>
+	 -->
+	<settings>
+	  <!-- 输出sql语句 -->
+	  <setting name="logImpl" value="STDOUT_LOGGING"/>
+	  <setting name="lazyLoadingEnabled" value="true"/>
+	</settings>
+	<!-- 
+	<typeAliases>
+	   <typeAlias type="cn.com.demo.mybatis.entity.DmModul" alias="DmModul"/>
+	   <typeAlias type="cn.com.demo.mybatis.entity.DmPowerItem" alias="DmPowerItem"/>
+	</typeAliases>
+	  -->
+	 
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<!-- edit -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/shop_db" />
+				<property name="username" value="root" />
+				<property name="password" value="123456" />
+			</dataSource>
+		</environment>
+		
+	</environments>
+	
+	<mappers>
+		<!-- edit 
+		<mapper resource="cn/com/demo/mybatis/entity/DmModulMapper.xml" />
+		<mapper resource="cn/com/demo/mybatis/entity/DmPowerItemMapper.xml" />
+		-->
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper.xml"/>
+	</mappers>
+</configuration>
