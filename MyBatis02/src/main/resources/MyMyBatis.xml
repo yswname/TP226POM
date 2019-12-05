@@ -2,34 +2,47 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!-- 读入db.properties文件内容 -->
-    <!-- 
 	<properties resource="db.properties">
 		<property name="test" value="demoValue" />
+		<property name="mydriver" value="com.mysql.jdbc.Driver"/>
 	</properties>
-	 -->
+	
 	<settings>
 	  <!-- 输出sql语句 -->
 	  <setting name="logImpl" value="STDOUT_LOGGING"/>
 	  <setting name="lazyLoadingEnabled" value="true"/>
 	</settings>
-	<!-- 
+	
+	<!-- 自定义类型的别名 -->
 	<typeAliases>
-	   <typeAlias type="cn.com.demo.mybatis.entity.DmModul" alias="DmModul"/>
-	   <typeAlias type="cn.com.demo.mybatis.entity.DmPowerItem" alias="DmPowerItem"/>
+	   <package name="cn.com.demo.mybatis.entity"/>
 	</typeAliases>
-	  -->
+	
 	 
 	<environments default="development">
+	    <environment id="runtime">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<!-- edit -->
+				<property name="driver" value="${mydriver}" />
+				<property name="url" value="jdbc:mysql://localhost:3306/shop_db2" />
+				<property name="username" value="root" />
+				<property name="password" value="${mypassword}" />
+				<property name="driver.encoding" value="utf8"/>
+			</dataSource>
+		</environment>
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<!-- edit -->
-				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="driver" value="${mydriver}" />
 				<property name="url" value="jdbc:mysql://localhost:3306/shop_db" />
 				<property name="username" value="root" />
-				<property name="password" value="123456" />
+				<property name="password" value="${mypassword}" />
 			</dataSource>
 		</environment>
+		
+		
 		
 	</environments>
 	

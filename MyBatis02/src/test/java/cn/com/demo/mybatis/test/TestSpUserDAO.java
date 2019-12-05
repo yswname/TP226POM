@@ -18,7 +18,9 @@ public class TestSpUserDAO {
 			// 1 命名空间-》固定匹配
 			// 2 sql的id-》固定匹配
 			ISpUserDAO userDAO = session.getMapper(ISpUserDAO.class);
-			userDAO.save(user);
+			//userDAO.save(user);
+			user = userDAO.findByUserName("zhangsan");
+			System.out.println(user);
 			session.commit();
 		} catch (Exception e) {
 			session.rollback();
