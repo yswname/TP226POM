@@ -7,7 +7,7 @@
       <result column="ur_password" property="urPassword"/>
     </resultMap>
     
-	<insert id="save" parameterType="SpUser">
+	<insert id="save" parameterType="SpUser" useGeneratedKeys="true" keyColumn="ur_id" keyProperty="urId">
 		insert into sp_user
 		(ur_user_name,ur_password)
 		values(#{urUserName}, #{urPassword})
