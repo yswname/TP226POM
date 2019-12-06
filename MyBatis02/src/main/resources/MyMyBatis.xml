@@ -52,5 +52,6 @@
 		<mapper resource="cn/com/demo/mybatis/entity/DmPowerItemMapper.xml" />
 		-->
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper2.xml"/>
 	</mappers>
 </configuration>

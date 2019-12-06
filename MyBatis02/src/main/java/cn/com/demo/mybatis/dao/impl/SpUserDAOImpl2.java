@@ -1,5 +1,7 @@
 package cn.com.demo.mybatis.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import cn.com.demo.mybatis.dao.ISpUserDAO;
@@ -27,6 +29,12 @@ public class SpUserDAOImpl2 implements ISpUserDAO {
 
 	@Override
 	public SpUser findByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SpUser> findByIdOrUserName(int id, String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
