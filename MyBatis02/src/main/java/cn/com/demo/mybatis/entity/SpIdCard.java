@@ -4,6 +4,16 @@ public class SpIdCard {
     private int icId;
     private String icCode;
     private String icName;
+    
+    private SpUser user;
+    
+    
+	public SpUser getUser() {
+		return user;
+	}
+	public void setUser(SpUser user) {
+		this.user = user;
+	}
 	public int getIcId() {
 		return icId;
 	}

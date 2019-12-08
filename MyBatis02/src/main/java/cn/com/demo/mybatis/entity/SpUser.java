@@ -5,6 +5,16 @@ public class SpUser {
     private String urUserName;
     private String urPassword;
     
+    private SpIdCard idCard;
+    
+    
+    
+	public SpIdCard getIdCard() {
+		return idCard;
+	}
+	public void setIdCard(SpIdCard idCard) {
+		this.idCard = idCard;
+	}
 	public int getUrId() {
 		return urId;
 	}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.demo.mybatis.dao.ISpIdCardDAO">
+    <resultMap type="SpIdCard" id="SpIdCardMap">
+      <id column="ic_id" property="icId"/>
+      <result column="ic_code" property="icCode"/>
+      <result column="ic_name" property="icName"/>
+    </resultMap>
+    
+	<insert id="add" parameterType="SpIdCard" >
+		insert into sp_id_card
+		(ic_id,ic_code,ic_name)
+		values(#{icId}, #{icCode}, #{icName})
+	</insert>
+	
+</mapper>

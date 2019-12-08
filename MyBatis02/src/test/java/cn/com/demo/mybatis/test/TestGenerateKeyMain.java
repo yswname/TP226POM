@@ -25,9 +25,9 @@ public class TestGenerateKeyMain {
 		
 		SpUser user = new SpUser();
 		user.setUrPassword("123");
-		user.setUrUserName("my06");
+		user.setUrUserName("my12");
 		
-		dao.save(user);
+		dao.add(user);
 		session.commit();
 		
 		System.out.println(user.getUrId());

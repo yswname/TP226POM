@@ -13,12 +13,22 @@
 		values(#{urUserName}, #{urPassword})
 	</insert>
 	
+	<insert id="add" parameterType="SpUser" useGeneratedKeys="true" keyColumn="ur_id" keyProperty="urId">
+		insert into sp_user
+		(ur_user_name,ur_password)
+		values(#{urUserName}, #{urPassword})
+	</insert>
+	
 	<select id="findByUserName" parameterType="string" resultMap="SpUserMap">
 	   select * from sp_user where ur_user_name=#{xx}
 	</select>
 	
 	<select id="findByIdOrUserName" resultMap="SpUserMap">
 	   select * from sp_user where ur_user_name=#{arg1} or ur_id=#{param1}
+	</select>
+	
+	<select id="findAllByPaging"  resultMap="SpUserMap">
+	   select * from sp_user order by ur_id limit #{param1},#{param2}
 	</select>
 	
 	<select id="find2" resultMap="SpUserMap" parameterType="SpUser">

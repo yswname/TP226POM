@@ -12,6 +12,12 @@ public class SpUserDAOImpl2 implements ISpUserDAO {
 	private MyBatisUtil mybatisUtil = MyBatisUtil.getInstance();
 
 	@Override
+	public void add(SpUser user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void save(SpUser user) {
 		SqlSession session = this.mybatisUtil.getSession();
 		try {
@@ -35,6 +41,18 @@ public class SpUserDAOImpl2 implements ISpUserDAO {
 
 	@Override
 	public List<SpUser> findByIdOrUserName(int id, String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SpUser> findByPaging(int id, String urUserName, int start, int count) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SpUser> findAllByPaging(int start, int count) {
 		// TODO Auto-generated method stub
 		return null;
 	}
