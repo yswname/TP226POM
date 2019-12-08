@@ -12,6 +12,7 @@ public class SpIdCardDAOImpl implements ISpIdCardDAO {
 		ISpIdCardDAO cardDAO = util.getSession().getMapper(ISpIdCardDAO.class);
 		try {
 			cardDAO.add(card);
+			// SqlSession的线程安全性
 			util.getSession().commit();
 		} catch (Exception e) {
 			util.getSession().rollback();

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dyn.sql">
+    <resultMap type="SpUser" id="SpUserMap">
+      <id column="ur_id" property="urId"/>
+      <result column="ur_user_name" property="urUserName"/>
+      <result column="ur_password" property="urPassword"/>
+    </resultMap>
+    <!-- userName -->
+	<select id="testIf" resultMap="SpUserMap" parameterType="map">
+	  select * from sp_user where 1=1
+	  <if test="userName != null">
+	     AND ur_user_name=#{userName}
+	  </if>
+	</select>
+	
+	<select id="testIf2" resultMap="SpUserMap" parameterType="map">
+	  select * from sp_user
+      <where>
+	    <if test="userName != null">
+	       ur_user_name=#{userName}
+	    </if>
+	  </where>
+	</select>
+	<!-- select * from ... where 1=1 and ur_id in (1,2,3,4,5) -->
+	<!-- collection list array -->
+	<select id="testForeach" resultMap="SpUserMap" parameterType="list">
+	   select * from sp_user where 1=1 and ur_id in 
+	   <foreach collection="list" close=")" index="" item="_id" open="(" separator=",">
+	     #{_id}
+	   </foreach>
+	   
+	</select>
+	
+	<select id="testForeach2" resultMap="SpUserMap" >
+	   select * from sp_user where 1=1 and ur_id in 
+	   <foreach collection="array" close=")" index="" item="_id" open="(" separator=",">
+	     #{_id}
+	   </foreach>
+	   
+	</select>
+	<!-- update sp_user set ur_user_name=?, ur_password=? where ur_id=? -->
+	<update id="testSet" parameterType="SpUser">
+	   update sp_user 
+	   <set>
+	     <if test="urUserName!=null">ur_user_name=#{urUserName},</if>
+	     <if test="urPassword!=null">ur_password=#{urPassword}</if>
+	   </set>
+	   
+	   where ur_id=#{urId}
+	</update>
+	
+	<!-- select * from sp_user where ur_id=? or ur_user_name=? -->
+	<select id="testTrim" parameterType="map" resultMap="SpUserMap">
+	   select * from sp_user 
+	   <trim prefix="where" prefixOverrides="or">
+	      <if test="id!=null">
+	        ur_id=#{urId}
+	      </if>
+	      <if test="userName!=null">
+	        or ur_user_name=#{userName}
+	      </if>
+	   </trim>
+	</select>
+</mapper>

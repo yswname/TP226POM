@@ -54,5 +54,6 @@
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpIdCardMapper.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper2.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper3.xml"/>
 	</mappers>
 </configuration>

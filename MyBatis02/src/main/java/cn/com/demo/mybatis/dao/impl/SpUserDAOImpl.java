@@ -16,6 +16,7 @@ public class SpUserDAOImpl implements ISpUserDAO {
 	public void add(SpUser user) {
 		SqlSession session = mybatisUtil.getSession();
 		try {
+			// 动态绑定
 			ISpUserDAO userDAO = session.getMapper(ISpUserDAO.class);
 			userDAO.add(user);
 			session.commit();

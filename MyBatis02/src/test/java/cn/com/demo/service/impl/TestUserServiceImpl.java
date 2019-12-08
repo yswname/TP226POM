@@ -22,14 +22,15 @@ public class TestUserServiceImpl {
     	SpUser user = null;
     	SpIdCard card = null;
     	for(int i=1;i<10;i++) {
+    		// 当前对象
     		user = new SpUser();
     		user.setUrPassword("123");
     		user.setUrUserName("t"+i);
-    		
+    		// 关联对象
     		card = new SpIdCard();
     		card.setIcCode("code"+i);
     		card.setIcName("name"+i);
-    		
+    		// 设置对象的相互关系
     		card.setUser(user);
     		user.setIdCard(card);
     		
