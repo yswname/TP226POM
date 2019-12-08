@@ -81,8 +81,19 @@ public class SpUserDAOImpl implements ISpUserDAO {
 
 	@Override
 	public List<SpUser> findByPaging(int id, String urUserName, int start, int count) {
-		// TODO Auto-generated method stub
-		return null;
+		List<SpUser> userList = null;
+		
+		SqlSession session = mybatisUtil.getSession();
+		try {
+			ISpUserDAO userDAO = session.getMapper(ISpUserDAO.class);
+			userList = userDAO.findByPaging(id, urUserName, start, count);
+		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}finally {
+			mybatisUtil.close();
+		}
+		
+		return userList;
 	}
 
 }

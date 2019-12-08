@@ -11,4 +11,8 @@ public interface IUserService {
 	default List<SpUser> searchUsersByPage(int pageNo, int pageCount) {
 		return null;
 	}
+	
+	default List<SpUser> searchUsersByPage(int id,String userName, int pageNo, int pageCount){
+		return null;
+	}
 }

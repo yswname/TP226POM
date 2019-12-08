@@ -19,12 +19,30 @@
 		values(#{urUserName}, #{urPassword})
 	</insert>
 	
+	<sql id="selectId">
+	   select * from sp_user
+	</sql>
+	
 	<select id="findByUserName" parameterType="string" resultMap="SpUserMap">
-	   select * from sp_user where ur_user_name=#{xx}
+	  <include refid="selectId"></include>
+	    where ur_user_name=#{xx}
 	</select>
 	
 	<select id="findByIdOrUserName" resultMap="SpUserMap">
-	   select * from sp_user where ur_user_name=#{arg1} or ur_id=#{param1}
+	   <include refid="selectId"></include> where ur_user_name=#{arg1} or ur_id=#{param1}
+	</select>
+	
+	<select id="findByPaging" resultMap="SpUserMap">
+	   <include refid="selectId"></include>
+	   <trim prefix="where" prefixOverrides="or">
+	      <if test="param1>0">
+	        ur_id=#{param1}
+	      </if>
+	      <if test="param2 != null">
+	       or ur_user_name=#{param2}
+	      </if>
+	   </trim>
+	   limit #{param3}, #{param4}
 	</select>
 	
 	<select id="findAllByPaging"  resultMap="SpUserMap">

@@ -41,4 +41,14 @@ public class UserServiceImpl implements IUserService {
 		return userList;
 	}
 
+	@Override
+	public List<SpUser> searchUsersByPage(int id, String userName, int pageNo, int pageCount) {
+		List<SpUser> userList = null;
+		// 数据库中的记录，从0开始
+		int start = (pageNo -1)*pageCount;
+		userList = this.userDAO.findByPaging(id,userName,start, pageCount);
+		
+		return userList;
+	}
+
 }

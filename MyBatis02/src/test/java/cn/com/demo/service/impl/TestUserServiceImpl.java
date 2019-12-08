@@ -45,6 +45,14 @@ public class TestUserServiceImpl {
     	}
     }
     
+    @Test
+    public void testSearchUsersByPageIdOrUserName() {
+    	List<SpUser> userList = this.userService.searchUsersByPage(-1,"my12",1, 3);
+    	for(SpUser user:userList) {
+    		System.out.println(user);
+    	}
+    }
+    
     @After
     public void end() {
     	this.userService = null;
