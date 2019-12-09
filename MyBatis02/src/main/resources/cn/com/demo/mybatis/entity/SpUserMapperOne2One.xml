@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.rel.mapper">
+    <resultMap type="SpUser" id="SpUserMap">
+      <id column="ur_id" property="urId"/>
+      <result column="ur_user_name" property="urUserName"/>
+      <result column="ur_password" property="urPassword"/>
+      
+      <association property="idCard" column="ur_id" javaType="SpIdCard" resultMap="SpIdCardMap"></association>
+    </resultMap>
+    <resultMap type="SpIdCard" id="SpIdCardMap">
+   		 <id column="ic_id" property="icId"/>
+         <result column="ic_name" property="icName"/>
+         <result column="ic_code" property="icCode"/>
+    </resultMap>
+    <!-- 查询用户，如果有身份证，查询身份证装配 -->
+    <select id="findByIdRelCard" parameterType="int" resultMap="SpUserMap">
+      <!-- select * from sp_user where ur_id=#{urId} -->
+      select ur.*, ic.* from sp_user ur left outer join sp_id_card ic
+                                        on ur.ur_id=ic.ic_id
+                        where ur.ur_id=#{urId}
+    </select>
+    
+    
+    <resultMap type="SpUser" id="SpUserMap2">
+      <id column="ur_id" property="urId"/>
+      <result column="ur_user_name" property="urUserName"/>
+      <result column="ur_password" property="urPassword"/>
+      
+      <association property="idCard" column="ur_id" 
+         javaType="SpIdCard"
+         select="test.rel.mapper.card.findById"></association>
+    </resultMap>
+    <select id="findById" parameterType="int" resultMap="SpUserMap2">
+       select * from sp_user where ur_id=#{urId}
+    </select>
+    
+</mapper>

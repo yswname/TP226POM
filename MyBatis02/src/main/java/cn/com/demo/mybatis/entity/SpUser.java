@@ -1,14 +1,22 @@
 package cn.com.demo.mybatis.entity;
 
+import java.util.List;
+
 public class SpUser {
     private int urId;
     private String urUserName;
     private String urPassword;
     
     private SpIdCard idCard;
+    private List<SpOrder> orders;
     
     
-    
+	public List<SpOrder> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<SpOrder> orders) {
+		this.orders = orders;
+	}
 	public SpIdCard getIdCard() {
 		return idCard;
 	}

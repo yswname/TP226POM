@@ -55,5 +55,8 @@
 		<mapper resource="cn/com/demo/mybatis/entity/SpIdCardMapper.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper2.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapper3.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2One.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2OneCard.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2Many.xml"/>
 	</mappers>
 </configuration>
