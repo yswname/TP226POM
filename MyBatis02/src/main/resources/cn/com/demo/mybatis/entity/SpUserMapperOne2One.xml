@@ -30,9 +30,16 @@
       <association property="idCard" column="ur_id" 
          javaType="SpIdCard"
          select="test.rel.mapper.card.findById"></association>
+      <collection property="roles" column="ur_id"
+          ofType="SpRole"
+          select="cn.com.demo.mybatis.dao.ISpRoleDAO.findByUrId"></collection>
     </resultMap>
     <select id="findById" parameterType="int" resultMap="SpUserMap2">
        select * from sp_user where ur_id=#{urId}
+    </select>
+    
+    <select id="findAllUser" resultMap="SpUserMap2">
+       select * from sp_user
     </select>
     
 </mapper>

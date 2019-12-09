@@ -9,8 +9,15 @@ public class SpUser {
     
     private SpIdCard idCard;
     private List<SpOrder> orders;
+    private List<SpRole> roles;
     
     
+	public List<SpRole> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<SpRole> roles) {
+		this.roles = roles;
+	}
 	public List<SpOrder> getOrders() {
 		return orders;
 	}

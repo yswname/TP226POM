@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.demo.mybatis.dao.ISpRoleDAO">
+    <resultMap type="SpRole" id="SpRoleMap">
+      <id column="rl_id" property="rlId"/>
+      <result column="rl_name" property="rlName"/>
+    </resultMap>
+    
+	<select id="findById" parameterType="int" resultMap="SpRoleMap">
+	   select * from sp_role where rl_id=#{rlId}
+	</select>
+	
+	<select id="findByUrId" parameterType="int" resultMap="SpRoleMap">
+	   select rl.* from sp_role rl, sp_ur_rl mp
+	               where mp.mp_ur_id=#{urId} and mp.mp_rl_id=rl.rl_id
+	</select>
+	
+</mapper>

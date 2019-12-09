@@ -16,11 +16,26 @@
          <result column="od_py_id" property="odPyId"/>
       </collection>
     </resultMap>
+    
+    <resultMap type="SpUser" id="SpUserMap2">
+      <id column="ur_id" property="urId"/>
+      <result column="ur_user_name" property="urUserName"/>
+      <result column="ur_password" property="urPassword"/>
+      
+      <collection property="orders" column="ur_id" 
+        ofType="SpOrder" 
+        select="cn.com.demo.mybatis.dao.ISpOrderDAO.findByUrId">
+      </collection>
+    </resultMap>
 
-    <select id="findById" parameterType="int" resultMap="SpUserMap">
-       select ur.*, od.* from sp_user ur left outer join sp_order od
+    <select id="findById" parameterType="int" resultMap="SpUserMap2">
+       <!-- select ur.*, od.* from sp_user ur left outer join sp_order od
                                          on ur.ur_id=od.od_ur_id
                          where ur.ur_id=#{urId}
+                          -->
+       select * from sp_user where ur_id=#{urId}
     </select>
+    
+
     
 </mapper>

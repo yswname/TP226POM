@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.demo.mybatis.dao.ISpOrderDAO">
+    <resultMap type="SpOrder" id="SpOrderMap">
+      <id column="od_id" property="odId"/>
+         <result column="od_code" property="odCode"/>
+         <result column="od_create_time" property="odCreateTime"/>
+         <result column="od_ur_id" property="odUrId"/>
+         <result column="od_address_id" property="odAddressId"/>
+         <result column="od_status" property="odStatus"/>
+         <result column="od_py_id" property="odPyId"/>
+    </resultMap>
+    
+	<select id="findById" parameterType="int" resultMap="SpOrderMap">
+	   select * from sp_order where od_id=#{odId}
+	</select>
+	
+	<select id="findByUrId" parameterType="int" resultMap="SpOrderMap">
+	   select * from sp_order where od_ur_id=#{odUrId}
+	</select>
+</mapper>

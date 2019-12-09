@@ -11,6 +11,11 @@
 	  <!-- 输出sql语句 -->
 	  <setting name="logImpl" value="STDOUT_LOGGING"/>
 	  <setting name="lazyLoadingEnabled" value="true"/>
+	  <setting name="aggressiveLazyLoading" value="false"/>
+	  <!-- 
+	  <setting name="lazyLoadingEnabled" value="true"/>
+	  <setting name="aggressiveLazyLoading" value="false"/>
+	   -->
 	</settings>
 	
 	<!-- 自定义类型的别名 -->
@@ -58,5 +63,7 @@
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2One.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2OneCard.xml"/>
 		<mapper resource="cn/com/demo/mybatis/entity/SpUserMapperOne2Many.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpOrderMapper.xml"/>
+		<mapper resource="cn/com/demo/mybatis/entity/SpRoleMapper.xml"/>
 	</mappers>
 </configuration>
