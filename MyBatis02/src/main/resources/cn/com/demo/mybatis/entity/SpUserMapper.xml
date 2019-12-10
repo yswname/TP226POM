@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.demo.mybatis.dao.ISpUserDAO">
+   <cache></cache>
+   <cache-ref namespace="cn.com.demo.mybatis.dao.ISpIdCardDAO"/>
     <resultMap type="SpUser" id="SpUserMap">
       <id column="ur_id" property="urId"/>
       <result column="ur_user_name" property="urUserName"/>
       <result column="ur_password" property="urPassword"/>
     </resultMap>
+    <select id="findById" parameterType="int" resultMap="SpUserMap">
+       select * from sp_user where ur_id=#{urId}
+    </select>
+    
+    <insert id="update" parameterType="SpUser">
+       update sp_user set ur_password=#{urPassword} where ur_id=#{urId}
+    </insert>
     
 	<insert id="save" parameterType="SpUser" useGeneratedKeys="true" keyColumn="ur_id" keyProperty="urId">
 		insert into sp_user

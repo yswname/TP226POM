@@ -5,6 +5,7 @@ import java.util.List;
 import cn.com.demo.mybatis.entity.SpUser;
 
 public interface ISpUserDAO {
+	public SpUser findById(int urId);
     public void save(SpUser user);
     //default void add(SpUser user) {}; rownum rowid
     public void add(SpUser user);
@@ -13,4 +14,5 @@ public interface ISpUserDAO {
     public List<SpUser> findByPaging(int id, String urUserName, int start, int count);
     // mysql  limit begin,length
     public List<SpUser> findAllByPaging(int start, int count);
+    public void update(SpUser user);
 }

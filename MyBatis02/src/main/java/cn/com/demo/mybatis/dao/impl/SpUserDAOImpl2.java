@@ -12,6 +12,18 @@ public class SpUserDAOImpl2 implements ISpUserDAO {
 	private MyBatisUtil mybatisUtil = MyBatisUtil.getInstance();
 
 	@Override
+	public SpUser findById(int urId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(SpUser user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void add(SpUser user) {
 		// TODO Auto-generated method stub
 		

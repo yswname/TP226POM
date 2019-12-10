@@ -1,8 +1,9 @@
 package cn.com.demo.mybatis.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SpUser {
+public class SpUser implements Serializable{
     private int urId;
     private String urUserName;
     private String urPassword;

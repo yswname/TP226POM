@@ -19,6 +19,13 @@ public class MyBatisUtil {
 	public static MyBatisUtil getInstance() {
 		return util;
 	}
+	
+	public SqlSessionFactory getSqlSessionFactory() {
+		if(factory == null) {
+			init();
+		}
+		return factory;
+	}
 
 	public SqlSession getSession() {
 		SqlSession sqlSession = null;

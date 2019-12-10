@@ -12,6 +12,8 @@
 	  <setting name="logImpl" value="STDOUT_LOGGING"/>
 	  <setting name="lazyLoadingEnabled" value="true"/>
 	  <setting name="aggressiveLazyLoading" value="false"/>
+	  <setting name="cacheEnabled" value="true"/>
+	  <setting name="localCacheScope" value="SESSION"/>
 	  <!-- 
 	  <setting name="lazyLoadingEnabled" value="true"/>
 	  <setting name="aggressiveLazyLoading" value="false"/>

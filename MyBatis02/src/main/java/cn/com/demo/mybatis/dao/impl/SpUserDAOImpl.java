@@ -13,6 +13,28 @@ public class SpUserDAOImpl implements ISpUserDAO {
 	
 	
 	@Override
+	public SpUser findById(int urId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(SpUser user) {
+		SqlSession session = mybatisUtil.getSession();
+		try {
+			// 动态绑定
+			ISpUserDAO userDAO = session.getMapper(ISpUserDAO.class);
+			userDAO.update(user);
+			session.commit();
+		}catch(Exception e) {
+			session.rollback();
+			throw new RuntimeException(e);
+		}finally {
+			mybatisUtil.close();
+		}
+	}
+
+	@Override
 	public void add(SpUser user) {
 		SqlSession session = mybatisUtil.getSession();
 		try {
