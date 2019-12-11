@@ -24,14 +24,10 @@ public class TestCache02 {
 		
 		SpUser u1 = session1.getMapper(ISpIdCardDAO.class).findUserByIcId(1);
 		session1.close();
-		SpUser u2 = session2.getMapper(ISpIdCardDAO.class).findUserByIcId(1);
-		System.out.println(u2);
 		
-		u1.setUrPassword("11");
-		session3.getMapper(ISpUserDAO.class).update(u1);
+		SpUser u2 = session3.getMapper(ISpUserDAO.class).findById(1);
 		
-		u2 = session2.getMapper(ISpIdCardDAO.class).findUserByIcId(1);
-		System.out.println(u2);
+		
 
 	}
 

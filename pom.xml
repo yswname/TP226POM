@@ -24,6 +24,8 @@
 		<module>SSMMVC03</module>
 		<module>MyBatis01</module>
 		<module>MyBatis02</module>
+		<module>MyBatis04Cache</module>
+		<module>MyBatis03Shopping</module>
 	</modules>
 
 	<properties>
