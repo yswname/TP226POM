@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -16,11 +17,7 @@ import cn.com.demo.shopping.mybatis.entity.SpUser;
 
 public interface SpUserMapper {
 	@Select("select * from sp_user")
-	@Results(id="SpUserMapper2",value={
-	        @Result(column="ur_id", property="urId", jdbcType=JdbcType.INTEGER, id=true),
-	        @Result(column="ur_user_name", property="urUserName", jdbcType=JdbcType.VARCHAR),
-	        @Result(column="ur_password", property="urPassword", jdbcType=JdbcType.VARCHAR)
-	    })
+	@ResultMap("SpUserMapper")
 	List<SpUser> findAllUsers();
 	
     @Delete({
