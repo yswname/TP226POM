@@ -13,7 +13,7 @@ import cn.com.demo.javaweb.shopping.entity.SpProduct;
 import cn.com.demo.javaweb.shopping.service.IIndexService;
 import cn.com.demo.javaweb.shopping.service.impl.IndexServiceImpl;
 
-@WebServlet("/indexListProductServlet")
+//@WebServlet("/indexListProductServlet")
 public class IndexListProductServlet extends HttpServlet {
 	private IIndexService indexService = new IndexServiceImpl();
 

@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   // 初始化产品列表div
 	   $.ajax({
 		   type:'post',
-		   url:'indexListProductServlet',
+		   url:'prod/indexProList.mvc',
 		   success:function(msg){
 			   $("#proListDiv").html(msg);
 		   }
