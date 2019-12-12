@@ -4,6 +4,7 @@ public class SpUser {
     private int urId;
     private String urUserName;
     private String urPassword;
+    
 	public int getUrId() {
 		return urId;
 	}

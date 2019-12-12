@@ -2,7 +2,7 @@ package cn.com.demo.shopping.mybatis.entity;
 
 import java.io.Serializable;
 
-public class SpProduct implements Serializable {
+public class SpProduct extends cn.com.demo.javaweb.shopping.entity.SpProduct implements Serializable {
     private Integer prId;
 
     private Double prPrice;

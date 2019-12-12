@@ -26,6 +26,7 @@
 		<module>MyBatis02</module>
 		<module>MyBatis04Cache</module>
 		<module>MyBatis03Shopping</module>
+		<module>MyBatis03MvcShopping</module>
 	</modules>
 
 	<properties>

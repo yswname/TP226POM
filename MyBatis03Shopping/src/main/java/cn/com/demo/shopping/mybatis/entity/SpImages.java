@@ -2,7 +2,9 @@ package cn.com.demo.shopping.mybatis.entity;
 
 import java.io.Serializable;
 
-public class SpImages implements Serializable {
+import cn.com.demo.javaweb.shopping.entity.SpImage;
+
+public class SpImages extends SpImage implements Serializable {
     private Integer imgId;
 
     private String imgTitle;

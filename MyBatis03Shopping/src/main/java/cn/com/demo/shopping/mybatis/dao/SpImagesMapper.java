@@ -1,17 +1,25 @@
 package cn.com.demo.shopping.mybatis.dao;
 
-import cn.com.demo.shopping.mybatis.entity.SpImages;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
+import cn.com.demo.shopping.mybatis.entity.SpImages;
+
 public interface SpImagesMapper {
+	@Select("select * from sp_images where img_type=#{param1} and img_pr_id=#{param2} order by img_id")
+	@ResultMap("SpImages")
+	List findImages(int type, int prId);
+	
     @Delete({
         "delete from sp_images",
         "where img_id = #{imgId,jdbcType=INTEGER}"
@@ -37,7 +45,7 @@ public interface SpImagesMapper {
         "from sp_images",
         "where img_id = #{imgId,jdbcType=INTEGER}"
     })
-    @Results({
+    @Results(id="SpImages",value={
         @Result(column="img_id", property="imgId", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="img_title", property="imgTitle", jdbcType=JdbcType.VARCHAR),
         @Result(column="img_url", property="imgUrl", jdbcType=JdbcType.VARCHAR),

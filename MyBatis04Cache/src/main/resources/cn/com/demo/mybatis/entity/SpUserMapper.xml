@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.demo.mybatis.dao.ISpUserDAO">
-   <cache-ref namespace="cn.com.demo.mybatis.dao.ISpIdCardDAO"/>
+    <cache-ref namespace="cn.com.demo.mybatis.dao.ISpIdCardDAO"/>
     <resultMap type="SpUser" id="SpUserMap">
       <id column="ur_id" property="urId"/>
       <result column="ur_user_name" property="urUserName"/>
