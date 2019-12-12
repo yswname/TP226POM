@@ -15,8 +15,23 @@ import cn.com.demo.mybatis.util.MyBatisUtil;
 import cn.com.demo.shopping.mybatis.dao.SpProductMapper;
 
 public class SpProductDAOImpl implements ISpProductDAO {
-	private DBConnection dbConn = DBConnection.getInstance();
 	private MyBatisUtil util = MyBatisUtil.getInstance();
+
+	@Override
+	public List<SpProduct> findByCataId(int cataId) {
+		List list = null;
+		try {
+			SqlSession session = util.getSession();
+			SpProductMapper prodMapper = session.getMapper(SpProductMapper.class);
+			list = prodMapper.findByCataId(cataId);
+			
+		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}finally {
+			util.close();
+		}
+		return list;
+	}
 
 	@Override
 	public SpProduct findById(int prId) {
@@ -35,57 +50,5 @@ public class SpProductDAOImpl implements ISpProductDAO {
 		return pro;
 	}
 
-	@Override
-	public List<SpProduct> findByCondition(String whereSql, List params) {
-		List<SpProduct> list = null;
-
-		Connection conn = dbConn.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			String sql = "select * from sp_product " + whereSql;
-			pstmt = conn.prepareStatement(sql);
-			if (params != null && params.size() > 0) {
-				for (int i = 0; i < params.size(); i++) {
-					pstmt.setObject(i + 1, params.get(i));
-				}
-			}
-			rs = pstmt.executeQuery();
-			if (rs != null) {
-				list = new ArrayList<SpProduct>();
-				SpProduct pro = null;
-				while (rs.next()) {
-					pro = new SpProduct();
-					list.add(pro);
-
-					pro.setPrTitle(rs.getString("pr_title"));
-					pro.setPrCtId(rs.getInt("pr_ct_id"));
-					pro.setPrDetailDesc(rs.getString("pr_detail_desc"));
-					pro.setPrId(rs.getInt("pr_id"));
-					pro.setPrPrice(rs.getDouble("pr_price"));
-					pro.setPrSimpleDesc(rs.getString("pr_simple_desc"));
-					pro.setPrAttrs(rs.getString("pr_attrs"));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		} finally {
-			dbConn.close(conn, pstmt, rs);
-		}
-
-		return list;
-	}
-
-//	Connection conn = dbConn.getConnection();
-//	PreparedStatement pstmt = null;
-//	ResultSet rs = null;
-//	try {
-//		
-//	}catch(Exception e) {
-//		e.printStackTrace();
-//		throw new RuntimeException(e);
-//	}finally {
-//		dbConn.close(conn, pstmt, rs);
-//	}
+	
 }

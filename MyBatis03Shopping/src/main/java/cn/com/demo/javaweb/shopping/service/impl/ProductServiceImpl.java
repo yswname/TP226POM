@@ -31,10 +31,7 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	public List<SpProduct> searchProductListByCate(int cataId) {
-		String where = " where pr_ct_id = ?";
-		List params = new ArrayList();
-		params.add(cataId);
-		List<SpProduct> proList = this.proDao.findByCondition(where, params);
+		List<SpProduct> proList = this.proDao.findByCataId(cataId);//.findByCondition(where, params);
 		
 		// 设置好查询列表的小图片
 		if(proList != null) {

@@ -1,17 +1,24 @@
 package cn.com.demo.shopping.mybatis.dao;
 
-import cn.com.demo.shopping.mybatis.entity.SpProduct;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
+import cn.com.demo.shopping.mybatis.entity.SpProduct;
+
 public interface SpProductMapper {
+	@Select("select * from sp_product where pr_ct_id = #{param1}")
+	@ResultMap("SpProduct")
+	List findByCataId(int cataId);
     @Delete({
         "delete from sp_product",
         "where pr_id = #{prId,jdbcType=INTEGER}"
@@ -39,7 +46,7 @@ public interface SpProductMapper {
         "from sp_product",
         "where pr_id = #{prId,jdbcType=INTEGER}"
     })
-    @Results({
+    @Results(id="SpProduct",value={
         @Result(column="pr_id", property="prId", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="pr_price", property="prPrice", jdbcType=JdbcType.DOUBLE),
         @Result(column="pr_title", property="prTitle", jdbcType=JdbcType.VARCHAR),
