@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-   <bean id="userDAO" class="cn.com.demo.spring.dao.UserDAO"></bean>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        
+   <bean id="userDAO" class="cn.com.demo.spring.dao.UserDAO" 
+         init-method="init" 
+         destroy-method="after"></bean>
+   
+   <alias name="userDAO" alias="UserDAO"/>
+   
+   <bean id="user" class="cn.com.demo.spring.entity.User"></bean>
+   
+   <bean id="userDAO2" class="cn.com.demo.spring.dao.UserDAO">
+      <constructor-arg value="2" index="1"></constructor-arg>
+      <constructor-arg value="zhangsan" index="0"></constructor-arg>
+      
+   </bean>
+   
+   <bean id="serviceFactory" class="cn.com.demo.spring.service.ServiceFactory"
+         factory-method="getInstance"></bean>
+   
+   <bean id="userService" class="cn.com.demo.spring.service.UserService"
+         factory-bean="serviceFactory" factory-method="createUserService">
+         <property name="userDAO" ref="userDAO2"></property>
+   </bean>
+   
+   <bean id="userService2" class="cn.com.demo.spring.service.UserService">
+      <!-- <constructor-arg><ref bean="userDAO2"/></constructor-arg> -->
+      <constructor-arg>
+        <bean class="cn.com.demo.spring.dao.UserDAO"></bean>
+      </constructor-arg>
+   </bean>
+         
+         
+   <bean id="testConfigData" class="cn.com.demo.spring.service.TestConfigData">
+      <property name="testStr" value="zhangsan"></property>
+      <property name="testInt" value="23"></property>
+      <property name="testDouble" value="23.23"></property>
+      <property name="testList">
+         <list>
+            <value>zhangsan</value>
+            <value type="java.lang.Integer">3</value>
+            <ref bean="serviceFactory"/>
+         </list>
+      </property>
+      <property name="testMap">
+         <map>
+            <entry>
+              <key><value>zhangsan</value></key>
+              <value>20</value>
+            </entry>
+            <entry>
+               <key>
+                  <ref bean="serviceFactory"/>
+               </key>
+               <ref bean="userDAO"/>
+            </entry>
+         </map>
+      </property>
+      <property name="testProp">
+         <props>
+            <prop key="xx">abc</prop>
+         </props>
+      </property>
+   </bean>
 </beans>
