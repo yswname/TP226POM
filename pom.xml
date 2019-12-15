@@ -28,6 +28,7 @@
 		<module>MyBatis03Shopping</module>
 		<module>MyBatis03MvcShopping</module>
 		<module>SSMSpring01</module>
+		<module>SSMSpring02</module>
 	</modules>
 
 	<properties>
@@ -51,6 +52,8 @@
 
 		<mybatis.version>3.4.4</mybatis.version>
 		<junit.version>4.10</junit.version>
+
+		<aspectj.version>1.9.4</aspectj.version>
 	</properties>
 
 	<build>
@@ -75,6 +78,13 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>${aspectj.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
@@ -98,6 +108,11 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
