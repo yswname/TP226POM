@@ -4,23 +4,23 @@ import cn.com.demo.spring.service.IUserService;
 
 public class UserServiceImpl implements IUserService {
 
-	@Override
+	//@Override
 	public boolean verify(String userName, String password) {
 		System.out.println("******* verify2 ");
 		return false;
 	}
 
-	@Override
+	//@Override
 	public boolean verify(String userName, String password, int age) {
 		System.out.println("******* verify1 ");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void service01() {
 		System.out.println("******* service 01");
 		String str = null;
-		str.toCharArray();
+		//str.toCharArray();
 		
 		System.out.println("over");
 	}

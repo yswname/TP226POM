@@ -31,8 +31,10 @@
        <aop:after-throwing method="exception" pointcut-ref="servicePointcut"/>
        
        <aop:before method="testArgs" pointcut-ref="servicePointcut"/>
-       --> 
+       
        <aop:before method="testArgs3"  pointcut-ref="servicePointcut2" arg-names="v1,v2"/>
+       --> 
+       <aop:before method="log01" pointcut-ref="servicePointcut"/>
      </aop:aspect>
    </aop:config>
 </beans>
