@@ -13,7 +13,7 @@ public class TestUserServiceImpl {
 	private IUserService userService;
 	@Before
 	public void init() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext2.xml");
 		userService = (IUserService)ctx.getBean("userService");
 	}
 	@Test
@@ -22,4 +22,11 @@ public class TestUserServiceImpl {
     	System.out.println(user.getUrUserName());
     	Assert.assertNotNull(user);
     }
+	@Test
+	public void testAddUser() {
+		SpUser user = new SpUser();
+		user.setUrPassword("114");
+		user.setUrUserName("sm04");
+		this.userService.addUser(user);
+	}
 }

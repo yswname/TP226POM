@@ -6,6 +6,15 @@ import cn.com.demo.sm.service.IUserService;
 
 public class UserServiceImpl implements IUserService {
     private SpUserMapper userMapper;
+    
+    
+	@Override
+	public void addUser(SpUser user) {
+		this.userMapper.insert(user);
+		//throw new RuntimeException("xx");
+	}
+
+
 	@Override
 	public SpUser searchUserById(int urId) {
 		return this.userMapper.selectByPrimaryKey(urId);
