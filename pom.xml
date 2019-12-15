@@ -29,6 +29,7 @@
 		<module>MyBatis03MvcShopping</module>
 		<module>SSMSpring01</module>
 		<module>SSMSpring02</module>
+		<module>SSMSpringMyBatis</module>
 	</modules>
 
 	<properties>
@@ -54,6 +55,8 @@
 		<junit.version>4.10</junit.version>
 
 		<aspectj.version>1.9.4</aspectj.version>
+		<mybatis.spring.version>2.0.1</mybatis.spring.version>
+		<dbcp.version>1.4</dbcp.version>
 	</properties>
 
 	<build>
@@ -78,6 +81,20 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>${dbcp.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis.spring.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
 			<dependency>
 				<groupId>org.aspectj</groupId>
@@ -103,6 +120,11 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
