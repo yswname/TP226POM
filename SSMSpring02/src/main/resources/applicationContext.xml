@@ -16,11 +16,23 @@
    
    <aop:config>
      <!-- 切入点 -->
+     
      <aop:pointcut expression="execution(* cn.com.demo.spring.service.impl.UserServiceImpl.*(..))" id="servicePointcut"/>
+     <aop:pointcut expression="execution(* cn.com.demo.spring.service.impl.UserServiceImpl.*(..)) and args(v1,v2,v3)" id="servicePointcut2"/>
+     
      <!-- 切面 -->
      <aop:aspect ref="logService">
-       <!-- 通知 -->
+       <!-- 通知
+       <aop:around method="around" pointcut-ref="servicePointcut"/>
        <aop:before method="log01" pointcut-ref="servicePointcut"/>
+       
+       <aop:after method="after" pointcut-ref="servicePointcut"/>
+       <aop:after-returning method="afterReturn" pointcut-ref="servicePointcut"/>
+       <aop:after-throwing method="exception" pointcut-ref="servicePointcut"/>
+       
+       <aop:before method="testArgs" pointcut-ref="servicePointcut"/>
+       --> 
+       <aop:before method="testArgs3"  pointcut-ref="servicePointcut2" arg-names="v1,v2"/>
      </aop:aspect>
    </aop:config>
 </beans>

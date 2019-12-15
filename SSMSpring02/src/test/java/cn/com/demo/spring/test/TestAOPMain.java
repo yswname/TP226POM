@@ -10,7 +10,8 @@ public class TestAOPMain {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IUserService userService = (IUserService)ctx.getBean("userService");
-		userService.service01();
+		//userService.service01();
+		userService.verify("zhangsan", "123");
 	}
 
 }
