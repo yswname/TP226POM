@@ -4,9 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import cn.com.demo.spring.anno.config.SpringConfig;
-import cn.com.demo.spring.anno.pojo.Cat;
-import cn.com.demo.spring.anno.pojo.Dog;
-import cn.com.demo.spring.anno.pojo.Zoo;
+import cn.com.demo.spring.service.IUserService;
 
 public class TestMain {
 
@@ -19,13 +17,16 @@ public class TestMain {
 //		Zoo zoo = ctx.getBean(Zoo.class);
 //		System.out.println(zoo.getDog() +",,,,,,");
 		
-		String[] names = ctx.getBeanDefinitionNames();
-		for(String name:names) {
-			System.out.println(name);
-		}
+//		String[] names = ctx.getBeanDefinitionNames();
+//		for(String name:names) {
+//			System.out.println(name);
+//		}
 		//System.out.println(ctx.getBean("cat")==ctx.getBean(Zoo.class).getCat());
 		//System.out.println(ctx.getBean("myCat")==ctx.getBean(Zoo.class).getCat());
-		System.out.println(ctx.getBean("pigFactoryBean"));
+//		System.out.println(ctx.getBean("pigFactoryBean"));
+		IUserService userService = ctx.getBean(IUserService.class);
+		//userService.service01();
+		userService.verify("zhansan", "123");
 	}
 
 }

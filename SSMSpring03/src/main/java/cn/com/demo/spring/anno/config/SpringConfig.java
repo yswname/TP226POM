@@ -3,6 +3,7 @@ package cn.com.demo.spring.anno.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 import cn.com.demo.spring.anno.pojo.Cat;
@@ -12,8 +13,9 @@ import cn.com.demo.spring.anno.processor.MyBeanDefinitionPostProcessor;
 import cn.com.demo.spring.anno.selector.DemoSelector;
 
 @Configuration
-@ComponentScan(basePackages= {"cn.com.demo.spring.anno.pojo","cn.com.demo.spring.anno.factorybean"})
+@ComponentScan(basePackages= {"cn.com.demo.spring.anno.pojo","cn.com.demo.spring.anno.factorybean","cn.com.demo.spring.service"})
 @Import(value= {Tiger.class, DemoSelector.class, MyBeanDefinitionPostProcessor.class})
+@EnableAspectJAutoProxy
 public class SpringConfig {
 	@Bean
     public Dog createDog() {
