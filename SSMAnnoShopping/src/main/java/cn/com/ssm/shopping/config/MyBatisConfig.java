@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource(value = "classpath:db.properties", encoding = "utf-8")
+@MapperScan("cn.com.ssm.shopping.mapper")
 public class MyBatisConfig implements EnvironmentAware {
 	@Value("${jdbc.driverName}")
 	private String driverClassName;
@@ -48,7 +50,7 @@ public class MyBatisConfig implements EnvironmentAware {
 		return factoryBean;
 	}
 
-	@Bean
+	//@Bean
 	public MapperScannerConfigurer createMapperScannerConfigurer() {
 		MapperScannerConfigurer configurer = new MapperScannerConfigurer();
 		configurer.setBasePackage("cn.com.ssm.shopping.mapper");
