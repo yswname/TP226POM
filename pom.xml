@@ -31,6 +31,7 @@
 		<module>SSMSpring02</module>
 		<module>SSMSpringMyBatis</module>
 		<module>SSMSpring03</module>
+		<module>SSMAnnoShopping</module>
 	</modules>
 
 	<properties>
