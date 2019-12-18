@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-
+/*demo*/
 @Configuration
 @PropertySource(value = "classpath:db.properties", encoding = "utf-8")
 @MapperScan("cn.com.ssm.shopping.mapper")
