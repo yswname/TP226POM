@@ -18,8 +18,7 @@ public class DemoServiceImpl implements IDemoService {
     private SpUserMapper userMapper;
 	@Override
 	public List<SpUser> searchAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.userMapper.findAllUsers();
 	}
 
 	@Override
@@ -32,7 +31,7 @@ public class DemoServiceImpl implements IDemoService {
 	public void registerUser(SpUser user) {
 		this.userMapper.insert(user);
 		String str = null;
-		str.toCharArray();
+		//str.toCharArray();
 	}
 
 }

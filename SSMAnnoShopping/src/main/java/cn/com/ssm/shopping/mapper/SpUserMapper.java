@@ -1,17 +1,24 @@
 package cn.com.ssm.shopping.mapper;
 
-import cn.com.ssm.shopping.entity.SpUser;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
+import cn.com.ssm.shopping.entity.SpUser;
+
 public interface SpUserMapper {
+	@Select("select * from sp_user order by ur_id")
+	@ResultMap("SpUserMap")
+	public List<SpUser> findAllUsers();
     @Delete({
         "delete from sp_user",
         "where ur_id = #{urId,jdbcType=INTEGER}"
@@ -35,7 +42,7 @@ public interface SpUserMapper {
         "from sp_user",
         "where ur_id = #{urId,jdbcType=INTEGER}"
     })
-    @Results({
+    @Results(id="SpUserMap",value={
         @Result(column="ur_id", property="urId", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="ur_user_name", property="urUserName", jdbcType=JdbcType.VARCHAR),
         @Result(column="ur_password", property="urPassword", jdbcType=JdbcType.VARCHAR)
