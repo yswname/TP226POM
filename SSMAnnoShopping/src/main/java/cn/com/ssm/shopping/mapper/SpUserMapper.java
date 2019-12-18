@@ -23,6 +23,17 @@ public interface SpUserMapper {
         "delete from sp_user",
         "where ur_id = #{urId,jdbcType=INTEGER}"
     })
+    
+    @Select({
+        "select",
+        "ur_id, ur_user_name, ur_password",
+        "from sp_user",
+        "where ur_user_name = #{userName}"
+    })
+    @ResultMap("SpUserMap")
+    public SpUser findByUserName(String userName);
+    
+    
     int deleteByPrimaryKey(Integer urId);
 
     @Insert({
