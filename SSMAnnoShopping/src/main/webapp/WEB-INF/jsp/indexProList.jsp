@@ -6,12 +6,12 @@
 	   var _data = "prId=" + proId;
 	   $.ajax({
 		   type:'post',
-		   url:'addShopCarServlet',
+		   url:'car/addShopCar.mvc',
 		   data:_data,
 		   success:function(msg){
 			   $.ajax({
 				   type:'post',
-				   url:'showProductCountServlet',
+				   url:'car/showShopCarProductCount.mvc',
 				   success:function(countMsg){
 					   $("#shopCarCountDiv").html(countMsg);
 				   }

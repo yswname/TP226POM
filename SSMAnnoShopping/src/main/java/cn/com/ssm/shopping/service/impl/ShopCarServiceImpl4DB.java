@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,7 +18,7 @@ import cn.com.ssm.shopping.service.IProductService;
 import cn.com.ssm.shopping.service.IShopCarService;
 import cn.com.ssm.shopping.service.ShopCarItem;
 @Service("shopCarService4DB")
-@Scope(value="SCOPE_PROTOTYPE")
+@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class ShopCarServiceImpl4DB implements IShopCarService {
 	@Autowired
 	private SpShopCarItemMapper carDAO;

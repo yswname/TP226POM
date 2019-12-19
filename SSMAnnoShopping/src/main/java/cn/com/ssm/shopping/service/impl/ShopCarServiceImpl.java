@@ -6,12 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import cn.com.ssm.shopping.entity.SpProduct;
 import cn.com.ssm.shopping.service.IShopCarService;
 import cn.com.ssm.shopping.service.ShopCarItem;
 @Service("shopCarService4Session")
+@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class ShopCarServiceImpl implements IShopCarService {
 	private Map<Integer, ShopCarItem> itemMap = new HashMap<Integer, ShopCarItem>();
 
