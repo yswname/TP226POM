@@ -19,10 +19,7 @@ public interface SpUserMapper {
 	@Select("select * from sp_user order by ur_id")
 	@ResultMap("SpUserMap")
 	public List<SpUser> findAllUsers();
-    @Delete({
-        "delete from sp_user",
-        "where ur_id = #{urId,jdbcType=INTEGER}"
-    })
+    
     
     @Select({
         "select",
@@ -33,7 +30,10 @@ public interface SpUserMapper {
     @ResultMap("SpUserMap")
     public SpUser findByUserName(String userName);
     
-    
+    @Delete({
+        "delete from sp_user",
+        "where ur_id = #{urId,jdbcType=INTEGER}"
+    })
     int deleteByPrimaryKey(Integer urId);
 
     @Insert({

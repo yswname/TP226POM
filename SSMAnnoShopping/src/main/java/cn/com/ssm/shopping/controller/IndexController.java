@@ -2,8 +2,6 @@ package cn.com.ssm.shopping.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +44,8 @@ public class IndexController {
 	 * @return String viewName(shopCarItemList.jsp or jsShopCarItemList.jsp)
 	 * */
 	@RequestMapping("/shopCarItemList.mvc")
-	public String shopCarItemList(@SessionAttribute(name="SHOP_CAR", required=false) IShopCarService shopCar, 
+	public String shopCarItemList(
+			@SessionAttribute(name="SHOP_CAR", required=false) IShopCarService shopCar, 
 			String type, 
 			Model model) {
 		String result = "shopCarItemList";

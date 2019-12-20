@@ -110,10 +110,12 @@ public class ShopCarController {
 	 */
 	@RequestMapping("/addShopCar.mvc")
 	@ResponseBody
-	public String addShopCar(@SessionAttribute(name = "LOGIN_USER", required = false) SpUser user,
+	public String addShopCar(
+			@SessionAttribute(name = "LOGIN_USER", required = false) SpUser user,
 			@SessionAttribute(name = "SHOP_CAR", required = false) IShopCarService shopCar,
 			@RequestParam(name = "prId", defaultValue = "0") int proId,
-			@RequestParam(name = "number", defaultValue = "1") int proNumber, Model model) {
+			@RequestParam(name = "number", defaultValue = "1") int proNumber,
+			Model model) {
 		String response = null;
 		try {
 			// 根据是否登录等情况，获取对应的ShopCar（Session Car or DataBase Car）
